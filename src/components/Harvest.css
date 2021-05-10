@@ -1,0 +1,110 @@
+.lingkaran {
+  height: 4rem;
+  width: 4rem;
+  margin: auto;
+  background-color: rgba(7, 177, 7, 0.363);
+  border-radius: 50%;
+  display: inline-block;
+  grid-area: header;
+}
+
+.title {
+  padding: 5%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "header main";
+  grid-template-columns: 1fr 8fr;
+}
+
+.heading {
+  vertical-align: auto;
+  margin: auto;
+  margin-left: 1%;
+  grid-area: main;
+}
+
+span {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+h1 {
+  margin-top: 2px;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.garis {
+  border: 1px solid black;
+}
+
+.component {
+  padding: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  background-color: rgba(7, 177, 7, 0.363);
+  border-radius: 15px;
+}
+
+h2 {
+  margin-top: 5%;
+  font-size: 1.5rem;
+}
+
+.textInput {
+  width: fill;
+  height: 30px;
+  padding: 0.5%;
+}
+
+.textAreaInput {
+  padding: 0.5%;
+  width: fill;
+  height: 100px;
+  resize: none;
+}
+
+button {
+  height: 80px;
+  width: 200px;
+  margin: 1%;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+}
+
+.formButton {
+  height: 50px;
+  width: 200px;
+  margin: 0;
+  border-radius: 0px;
+  border: 1px solid;
+}
+
+.cancelButton {
+  color: gray;
+  font-size: 40px;
+}
+
+.submitButton {
+  color: #4caf50;
+  background-color: white;
+  font-size: 40px;
+  border: 2px solid #4caf50;
+}
+
+.cancelButton:hover {
+  background-color: gray; /* Green */
+  color: white;
+}
+
+.submitButton:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 2%;
+}
