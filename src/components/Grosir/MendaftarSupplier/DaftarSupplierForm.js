@@ -1,21 +1,21 @@
 import { React, useState } from "react";
 import { Field, reduxForm } from "redux-form";
 
-const HarvestForm = (props) => {
+const DaftarSupplierForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   const [selectedFile, setSelectedFile] = useState(null);
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="component harvest">
+      <div className="component grosir">
         <div>
           <label>
-            <h2 className="harvest">Batch ID</h2>
+            <h2 className="grosir">Batch ID</h2>
           </label>
           <div>
             <Field
-              className="textInput harvest"
-              name="batchID"
+              className="textInput grosir"
+              name="namaProduk"
               component="input"
               type="text"
               placeholder="Batch ID"
@@ -25,11 +25,11 @@ const HarvestForm = (props) => {
 
         <div>
           <label>
-            <h2 className="harvest">Product ID</h2>
+            <h2 className="grosir">Product ID</h2>
           </label>
           <div>
             <Field
-              className="textInput harvest"
+              className="textInput grosir"
               name="productID"
               component="input"
               type="text"
@@ -40,11 +40,11 @@ const HarvestForm = (props) => {
 
         <div>
           <label>
-            <h2 className="harvest">Supplier ID</h2>
+            <h2 className="grosir">Supplier ID</h2>
           </label>
           <div>
             <Field
-              className="textInput harvest"
+              className="textInput grosir"
               name="supplierID"
               component="input"
               type="text"
@@ -55,11 +55,11 @@ const HarvestForm = (props) => {
 
         <div>
           <label>
-            <h2 className="harvest">Alamat Supplier</h2>
+            <h2 className="grosir">Alamat Supplier</h2>
           </label>
           <div>
             <Field
-              className="textAreaInput harvest"
+              className="textAreaInput grosir"
               name="alamatSupplier"
               component="textarea"
             />
@@ -68,11 +68,11 @@ const HarvestForm = (props) => {
 
         <div>
           <label>
-            <h2 className="harvest">Foto Panen</h2>
+            <h2 className="grosir">Foto Panen</h2>
           </label>
           <div>
             <input
-              className="textInput harvest"
+              className="textInput grosir"
               name="fileInput"
               type="file"
               onChange={(e) => setSelectedFile(e.target.files[0])}
@@ -82,11 +82,11 @@ const HarvestForm = (props) => {
 
         <div>
           <label>
-            <h2 className="harvest">Tanggal Panen</h2>
+            <h2 className="grosir">Tanggal Panen</h2>
           </label>
           <div>
             <Field
-              className="textInput harvest"
+              className="textInput grosir"
               name="tanggalPanen"
               component="input"
               type="date"
@@ -95,11 +95,11 @@ const HarvestForm = (props) => {
         </div>
       </div>
 
-      <div className="garis harvest"></div>
+      <div className="garis grosir"></div>
 
-      <div className="footer harvest">
+      <div className="footer grosir">
         <button
-          className="cancelButton harvest"
+          className="cancelButton grosir"
           type="button"
           disabled={pristine || submitting}
           onClick={reset}
@@ -107,7 +107,7 @@ const HarvestForm = (props) => {
           Clear Values
         </button>
         <button
-          className="submitButton harvest"
+          className="submitButton grosir"
           type="submit"
           disabled={pristine || submitting}
         >
@@ -119,5 +119,5 @@ const HarvestForm = (props) => {
 };
 
 export default reduxForm({
-  form: "harvest", // a unique identifier for this form
-})(HarvestForm);
+  form: "daftarSupplier", // a unique identifier for this form
+})(DaftarSupplierForm);

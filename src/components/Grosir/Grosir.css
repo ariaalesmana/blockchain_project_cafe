@@ -1,14 +1,15 @@
-.lingkaran.login {
+.lingkaran.grosir {
   height: 4rem;
   width: 4rem;
   margin: auto;
   background-color: rgba(7, 177, 7, 0.363);
   border-radius: 50%;
   display: inline-block;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   grid-area: header;
 }
 
-.title.login {
+.title.grosir {
   padding: 5%;
   display: grid;
   grid-gap: 10px;
@@ -16,65 +17,66 @@
   grid-template-columns: 1fr 8fr;
 }
 
-.heading.login {
+.heading.grosir {
   vertical-align: auto;
   margin: auto;
   margin-left: 1%;
   grid-area: main;
 }
 
-span.login {
+span.grosir {
   margin-top: 10px;
   font-size: 20px;
 }
 
-h1.login {
+h1.grosir {
   margin-top: 2px;
   font-size: 50px;
   margin-bottom: 0;
 }
 
-.garis.login {
+.garis.grosir {
   border: 1px solid black;
 }
 
-.component.login {
+.component.grosir {
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 3%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
   background-color: rgba(7, 177, 7, 0.363);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
 }
 
-h2.login {
+h2.grosir {
   margin-top: 5%;
   font-size: 1.5rem;
 }
 
-.textInput.login {
+.textInput.grosir {
   width: stretch;
   height: 30px;
   padding: 0.5%;
 }
 
-.textAreaInput.login {
+.textAreaInput.grosir {
   padding: 0.5%;
   width: stretch;
   height: 100px;
   resize: none;
 }
 
-button.login {
-  height: 80px;
+button.grosir {
+  height: 50px;
   width: 200px;
   margin: 1%;
   border-radius: 10px;
   transition-duration: 0.4s;
 }
 
-.formButton.login {
+.formButton.grosir {
   height: 50px;
   width: 200px;
   margin: 0;
@@ -82,30 +84,32 @@ button.login {
   border: 1px solid;
 }
 
-.cancelButton.login {
+.cancelButton.grosir {
   color: gray;
-  font-size: 30px;
+  font-size: 20px;
 }
 
-.submitButton.login {
+.submitButton.grosir {
   color: #4caf50;
   background-color: white;
-  font-size: 30px;
+  font-size: 20px;
   border: 2px solid #4caf50;
 }
 
-.cancelButton.login:hover {
+.cancelButton.grosir:hover {
   background-color: gray; /* Green */
   color: white;
 }
 
-.submitButton.login:hover {
+.submitButton.grosir:hover {
   background-color: #4caf50; /* Green */
   color: white;
 }
 
-.footer.login {
+.footer.grosir {
   text-align: center;
-  margin-bottom: 5%;
-  padding: 5%;
+  margin: auto;
+  margin-top: 5%;
+  grid-template-areas: "button1 button2";
+  grid-template-columns: 1fr 1fr;
 }
