@@ -1,0 +1,73 @@
+@media screen and (min-width: 601px) {
+  span.login {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  h1.login {
+    margin-top: 2px;
+    font-size: 40px;
+  }
+
+  h2.login {
+    margin-top: 2%;
+    font-size: 1.5rem;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .lingkaran.login {
+    height: 2rem;
+    width: 2rem;
+    margin: auto;
+    background-color: rgba(7, 177, 7, 0.363);
+    border-radius: 50%;
+    display: inline-block;
+    grid-area: header;
+  }
+
+  span.login {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  h1.login {
+    margin-top: 2px;
+    font-size: 20px;
+  }
+
+  h2.login {
+    margin-top: 5%;
+    font-size: 1rem;
+  }
+
+  .component.login {
+    padding: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    background-color: rgba(7, 177, 7, 0.363);
+    border-radius: 15px;
+  }
+
+  button.login {
+    height: 40px;
+    width: 40%;
+    margin: 1%;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+  }
+
+  .cancelButton.login {
+    color: gray;
+    font-size: 16px;
+  }
+
+  .submitButton.login {
+    color: #4caf50;
+    background-color: white;
+    font-size: 16px;
+    border: 2px solid #4caf50;
+  }
+}

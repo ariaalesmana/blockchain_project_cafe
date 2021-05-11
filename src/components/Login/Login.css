@@ -1,4 +1,4 @@
-.lingkaran {
+.lingkaran.login {
   height: 4rem;
   width: 4rem;
   margin: auto;
@@ -8,7 +8,7 @@
   grid-area: header;
 }
 
-.title {
+.title.login {
   padding: 5%;
   display: grid;
   grid-gap: 10px;
@@ -16,56 +16,57 @@
   grid-template-columns: 1fr 8fr;
 }
 
-.heading {
+.heading.login {
   vertical-align: auto;
   margin: auto;
   margin-left: 1%;
   grid-area: main;
 }
 
-span {
+span.login {
   margin-top: 10px;
   font-size: 20px;
 }
 
-h1 {
+h1.login {
   margin-top: 2px;
   font-size: 50px;
   margin-bottom: 0;
 }
 
-.garis {
+.garis.login {
   border: 1px solid black;
 }
 
-.component {
+.component.login {
+  margin-top: 5%;
+  margin-bottom: 5%;
   padding: 3%;
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 5%;
   background-color: rgba(7, 177, 7, 0.363);
   border-radius: 15px;
 }
 
-h2 {
+h2.login {
   margin-top: 5%;
   font-size: 1.5rem;
 }
 
-.textInput {
-  width: fill;
+.textInput.login {
+  width: stretch;
   height: 30px;
   padding: 0.5%;
 }
 
-.textAreaInput {
+.textAreaInput.login {
   padding: 0.5%;
-  width: fill;
+  width: stretch;
   height: 100px;
   resize: none;
 }
 
-button {
+button.login {
   height: 80px;
   width: 200px;
   margin: 1%;
@@ -73,7 +74,7 @@ button {
   transition-duration: 0.4s;
 }
 
-.formButton {
+.formButton.login {
   height: 50px;
   width: 200px;
   margin: 0;
@@ -81,30 +82,30 @@ button {
   border: 1px solid;
 }
 
-.cancelButton {
+.cancelButton.login {
   color: gray;
-  font-size: 40px;
+  font-size: 30px;
 }
 
-.submitButton {
+.submitButton.login {
   color: #4caf50;
   background-color: white;
-  font-size: 40px;
+  font-size: 30px;
   border: 2px solid #4caf50;
 }
 
-.cancelButton:hover {
+.cancelButton.login:hover {
   background-color: gray; /* Green */
   color: white;
 }
 
-.submitButton:hover {
+.submitButton.login:hover {
   background-color: #4caf50; /* Green */
   color: white;
 }
 
-.footer {
+.footer.login {
   text-align: center;
   margin-bottom: 5%;
-  padding: 2%;
+  padding: 5%;
 }
