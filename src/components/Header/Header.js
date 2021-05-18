@@ -1,4 +1,3 @@
-import react from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import "./HeaderMedia.css";
@@ -7,7 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="headerLogo">
-        <h1>Logo</h1>
+        <img src="images/logo-kopi-ketjil.png" alt="Logo Kopi Ketjil" />
       </Link>
       <NavLink
         to="/daftarProduk"

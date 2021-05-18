@@ -1,8 +1,13 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 .lingkaran.grosir {
   height: 4rem;
   width: 4rem;
   margin: auto;
-  background-color: rgba(7, 177, 7, 0.363);
+  background-color: rgba(75, 78, 75, 0.363);
   border-radius: 50%;
   display: inline-block;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -15,6 +20,18 @@
   grid-gap: 10px;
   grid-template-areas: "header main";
   grid-template-columns: 1fr 8fr;
+}
+
+#actionDiv.grosir {
+  grid-template-columns: 1fr 2fr;
+  margin: auto;
+  vertical-align: middle;
+}
+
+#actionName.grosir {
+  color: black;
+  font-size: 2rem;
+  margin: auto;
 }
 
 .heading.grosir {
@@ -31,12 +48,21 @@ span.grosir {
 
 h1.grosir {
   margin-top: 2px;
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 0;
 }
 
 .garis.grosir {
   border: 1px solid black;
+}
+
+.container.grosir {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 3%;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 15px;
 }
 
 .component.grosir {
@@ -45,13 +71,17 @@ h1.grosir {
   padding: 3%;
   margin-left: 20%;
   margin-right: 20%;
-  background-color: rgba(7, 177, 7, 0.363);
+  background-color: rgba(192, 192, 192, 0.445);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
 }
 
+#actionComp.grosir:hover {
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
 h2.grosir {
-  margin-top: 5%;
+  margin-top: 2%;
   font-size: 1.5rem;
 }
 
@@ -76,33 +106,31 @@ button.grosir {
   transition-duration: 0.4s;
 }
 
-.formButton.grosir {
-  height: 50px;
-  width: 200px;
-  margin: 0;
-  border-radius: 0px;
-  border: 1px solid;
-}
-
 .cancelButton.grosir {
-  color: gray;
+  color: white;
+  background-color: grey;
   font-size: 20px;
+  grid-area: cancelButton;
 }
 
 .submitButton.grosir {
-  color: #4caf50;
+  color: grey;
   background-color: white;
   font-size: 20px;
-  border: 2px solid #4caf50;
+  border: 2px solid grey;
+  grid-area: submitButton;
 }
 
 .cancelButton.grosir:hover {
-  background-color: gray; /* Green */
-  color: white;
+  color: grey;
+  background-color: white;
+  font-size: 20px;
+  border: 2px solid grey;
+  grid-area: cancelButton;
 }
 
 .submitButton.grosir:hover {
-  background-color: #4caf50; /* Green */
+  background-color: grey;
   color: white;
 }
 
@@ -110,6 +138,25 @@ button.grosir {
   text-align: center;
   margin: auto;
   margin-top: 5%;
-  grid-template-areas: "button1 button2";
+  grid-template-areas: "cancelButton submitButton";
   grid-template-columns: 1fr 1fr;
+}
+
+.detailForm.grosir {
+  margin: auto;
+  margin-top: 2%;
+  grid-template-areas: "namaDetail detailForm";
+  grid-template-columns: 1fr 1fr;
+}
+
+.namaDetail.grosir {
+  grid-area: namaDetail;
+}
+
+.detailForm.grosir {
+  grid-area: detailForm;
+}
+
+.batchTitle.grosir {
+  color: grey;
 }

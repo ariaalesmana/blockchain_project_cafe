@@ -9,8 +9,8 @@
     grid-template-columns: 2fr 2fr 2fr 2fr;
   }
 
-  h1 {
-    font-size: 20px;
+  img {
+    width: 60px;
   }
 
   h2 {

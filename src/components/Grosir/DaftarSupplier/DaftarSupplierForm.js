@@ -1,41 +1,41 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Field, reduxForm } from "redux-form";
 
-const DaftarProdukForm = (props) => {
+const DaftarSupplierForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
-  const [selectedFile, setSelectedFile] = useState(null);
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="component grosir">
         <div>
           <label>
-            <h2 className="grosir">Nama Produk</h2>
+            <h2 className="grosir">Nama Supplier</h2>
           </label>
           <div>
             <Field
               className="textInput grosir"
-              name="namaProduk"
+              name="namaSupplier"
               component="input"
               type="text"
-              placeholder="Masukkan nama produk"
+              placeholder="Nama Supplier"
             />
           </div>
         </div>
 
         <div>
           <label>
-            <h2 className="grosir">Deskripsi Produk</h2>
+            <h2 className="grosir">Lokasi Supplier</h2>
           </label>
           <div>
             <Field
-              className="textAreaInput grosir"
-              name="deskripsiProduk"
-              component="textarea"
+              className="textInput grosir"
+              name="lokasiSupplier"
+              component="input"
+              type="text"
+              placeholder="Lokasi Supplier"
             />
           </div>
         </div>
-
         <div className="footer grosir">
           <button
             className="cancelButton grosir"
@@ -53,12 +53,11 @@ const DaftarProdukForm = (props) => {
             SUBMIT
           </button>
         </div>
-
       </div>
     </form>
   );
 };
 
 export default reduxForm({
-  form: "daftarProduk", // a unique identifier for this form
-})(DaftarProdukForm);
+  form: "daftarSupplier", // a unique identifier for this form
+})(DaftarSupplierForm);

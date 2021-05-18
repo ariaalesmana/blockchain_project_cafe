@@ -4,14 +4,20 @@ import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
 import DaftarProdukForm from "./DaftarProdukForm";
 
-const MendaftarProduk = () => {
+const DaftarProduk = () => {
+  // const submit = (values) => {
+  //   // print the form values to the console
+  //   console.log(values.namaProduk);
+  //   console.log(values.deskripsiProduk);
+  // };
+
   return (
     <Fragment>
       <div className="title grosir">
         <span className="lingkaran grosir"></span>
         <div className="heading grosir">
-          <span className="grosir">Pemasukkan Data</span>
-          <h1 className="grosir">Mendaftar Produk</h1>
+          <span className="grosir">Pemasukkan Data Produk</span>
+          <h1 className="grosir">Daftar Produk</h1>
         </div>
       </div>
 
@@ -22,4 +28,4 @@ const MendaftarProduk = () => {
   );
 };
 
-export default MendaftarProduk;
+export default DaftarProduk;
