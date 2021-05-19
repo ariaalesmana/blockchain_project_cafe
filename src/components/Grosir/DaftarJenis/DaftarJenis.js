@@ -3,16 +3,16 @@ import "../Grosir.css";
 import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
 import firebase from "../../../firebase";
-import DaftarProdukForm from "./DaftarProdukForm";
+import DaftarJenisForm from "./DaftarJenisForm";
 
-const DaftarProduk = () => {
+const DaftarJenis = () => {
   const db = firebase.firestore();
 
   const handleSubmit = (values) => {
-    // db.collection("produk").add({
-    //   namaJenis: values.namaJenis,
-    //   deskripsiJenis: values.deskripsiJenis,
-    // });
+    db.collection("jenis").add({
+      namaJenis: values.namaJenis,
+      deskripsiJenis: values.deskripsiJenis,
+    });
 
     showResults(values);
   };
@@ -22,16 +22,16 @@ const DaftarProduk = () => {
       <div className="title grosir">
         <span className="lingkaran grosir"></span>
         <div className="heading grosir">
-          <span className="grosir">Pemasukkan Data Produk</span>
-          <h1 className="grosir">Daftar Produk</h1>
+          <span className="grosir">Pemasukkan Data Jenis</span>
+          <h1 className="grosir">Daftar Jenis</h1>
         </div>
       </div>
 
       <div className="garis grosir"></div>
 
-      <DaftarProdukForm onSubmit={handleSubmit} />
+      <DaftarJenisForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };
 
-export default DaftarProduk;
+export default DaftarJenis;

@@ -2,9 +2,25 @@ import { Fragment } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
-import DaftarProdukForm from "./DaftarBatchForm";
+import DaftarBatchForm from "./DaftarBatchForm";
+import firebase from "../../../firebase";
 
 const DaftarBatch = () => {
+  const db = firebase.firestore();
+
+  const handleSubmit = (values) => {
+    db.collection("batch").add({
+      batchID: values.batchID,
+      pilihJenis: values.pilihJenis,
+      pilihSupplier: values.pilihSupplier,
+      volume: values.volume,
+      gambar: null,
+      tanggalPanen: values.tanggalPanen,
+    });
+
+    showResults(values);
+  };
+
   return (
     <Fragment>
       <div className="title grosir">
@@ -17,7 +33,7 @@ const DaftarBatch = () => {
 
       <div className="garis grosir"></div>
 
-      <DaftarProdukForm onSubmit={showResults} />
+      <DaftarBatchForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };

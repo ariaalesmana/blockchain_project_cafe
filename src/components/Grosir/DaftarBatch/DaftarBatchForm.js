@@ -1,4 +1,3 @@
-import { getSuggestedQuery } from "@testing-library/dom";
 import { React, useState, useEffect } from "react";
 import { Field, reduxForm } from "redux-form";
 import firebase from "../../../firebase";
@@ -7,19 +6,17 @@ const DaftarBatchForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   // const [selectedFile, setSelectedFile] = useState(null);
 
-  const [produk, setProduk] = useState([]);
+  const [jenis, setJenis] = useState([]);
   const [supplier, setSupplier] = useState([]);
 
-  const db = firebase.firestore();
-
   const getProduk = async () => {
-    const events = await firebase.firestore().collection("produk");
+    const events = await firebase.firestore().collection("jenis");
     events.get().then((querySnapshot) => {
       const tempDoc = [];
       querySnapshot.forEach((doc) => {
         tempDoc.push({ id: doc.id, ...doc.data() });
       });
-      setProduk(tempDoc);
+      setJenis(tempDoc);
     });
   };
 
@@ -59,18 +56,22 @@ const DaftarBatchForm = (props) => {
 
         <div>
           <label>
-            <h2 className="grosir">Pilih Produk</h2>
+            <h2 className="grosir">Pilih Jenis</h2>
           </label>
           <div>
             <Field
               className="textInput grosir"
-              name="pilihProduk"
+              name="pilihJenis"
               component="select"
             >
               <option value="-----">----</option>
-              {produk &&
-                produk.map((value) => {
-                  return <option key={value.id}> {value.namaProduk}</option>;
+              {jenis &&
+                jenis.map((value) => {
+                  return (
+                    <option key={value.id} value={value.id}>
+                      {value.namaJenis}
+                    </option>
+                  );
                 })}
             </Field>
           </div>
@@ -89,9 +90,28 @@ const DaftarBatchForm = (props) => {
               <option value="-----">----</option>
               {supplier &&
                 supplier.map((value) => {
-                  return <option key={value.id}> {value.namaSupplier}</option>;
+                  return (
+                    <option key={value.id} value={value.id}>
+                      {value.namaSupplier}
+                    </option>
+                  );
                 })}
             </Field>
+          </div>
+        </div>
+
+        <div>
+          <label>
+            <h2 className="grosir">Volume</h2>
+          </label>
+          <div>
+            <Field
+              className="textInput grosir"
+              name="volume"
+              component="input"
+              type="number"
+              placeholder="Masukkan Volume Produk"
+            />
           </div>
         </div>
 

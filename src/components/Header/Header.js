@@ -9,11 +9,11 @@ const Header = () => {
         <img src="images/logo-kopi-ketjil.png" alt="Logo Kopi Ketjil" />
       </Link>
       <NavLink
-        to="/daftarProduk"
+        to="/daftarJenis"
         className="headerUnit"
         activeClassName="active"
       >
-        <h2>Daftar Produk</h2>
+        <h2>Daftar Jenis</h2>
       </NavLink>
       <NavLink
         to="/daftarSupplier"
@@ -28,6 +28,13 @@ const Header = () => {
         activeClassName="active"
       >
         <h2>Daftar Batch</h2>
+      </NavLink>
+      <NavLink
+        to="/daftarProduk"
+        className="headerUnit"
+        activeClassName="active"
+      >
+        <h2>Daftar Produk</h2>
       </NavLink>
     </div>
   );
