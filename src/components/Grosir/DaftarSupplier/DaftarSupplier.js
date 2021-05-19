@@ -3,8 +3,20 @@ import "../Grosir.css";
 import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
 import DaftarSupplierForm from "./DaftarSupplierForm";
+import firebase from "../../../firebase";
 
 const DaftarSupplier = () => {
+  const db = firebase.firestore();
+
+  const handleSubmit = (values) => {
+    db.collection("supplier").add({
+      namaSupplier: values.namaSupplier,
+      lokasiSupplier: values.lokasiSupplier,
+    });
+
+    showResults(values);
+  };
+
   return (
     <Fragment>
       <div className="title grosir">
@@ -17,7 +29,7 @@ const DaftarSupplier = () => {
 
       <div className="garis grosir"></div>
 
-      <DaftarSupplierForm onSubmit={showResults} />
+      <DaftarSupplierForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };

@@ -1,15 +1,21 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
 import DaftarProdukForm from "./DaftarProdukForm";
+import firebase from "../../../firebase";
 
 const DaftarProduk = () => {
-  // const submit = (values) => {
-  //   // print the form values to the console
-  //   console.log(values.namaProduk);
-  //   console.log(values.deskripsiProduk);
-  // };
+  const db = firebase.firestore();
+
+  const handleSubmit = (values) => {
+    db.collection("produk").add({
+      namaProduk: values.namaProduk,
+      deskripsiProduk: values.deskripsiProduk,
+    });
+
+    showResults(values);
+  };
 
   return (
     <Fragment>
@@ -23,7 +29,7 @@ const DaftarProduk = () => {
 
       <div className="garis grosir"></div>
 
-      <DaftarProdukForm onSubmit={showResults} />
+      <DaftarProdukForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };

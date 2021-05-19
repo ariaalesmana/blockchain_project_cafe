@@ -1,9 +1,43 @@
-import { React } from "react";
+import { getSuggestedQuery } from "@testing-library/dom";
+import { React, useState, useEffect } from "react";
 import { Field, reduxForm } from "redux-form";
+import firebase from "../../../firebase";
 
 const DaftarBatchForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   // const [selectedFile, setSelectedFile] = useState(null);
+
+  const [produk, setProduk] = useState([]);
+  const [supplier, setSupplier] = useState([]);
+
+  const db = firebase.firestore();
+
+  const getProduk = async () => {
+    const events = await firebase.firestore().collection("produk");
+    events.get().then((querySnapshot) => {
+      const tempDoc = [];
+      querySnapshot.forEach((doc) => {
+        tempDoc.push({ id: doc.id, ...doc.data() });
+      });
+      setProduk(tempDoc);
+    });
+  };
+
+  const getSupplier = async () => {
+    const events = await firebase.firestore().collection("supplier");
+    events.get().then((querySnapshot) => {
+      const tempDoc = [];
+      querySnapshot.forEach((doc) => {
+        tempDoc.push({ id: doc.id, ...doc.data() });
+      });
+      setSupplier(tempDoc);
+    });
+  };
+
+  useEffect(() => {
+    getProduk();
+    getSupplier();
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -33,10 +67,11 @@ const DaftarBatchForm = (props) => {
               name="pilihProduk"
               component="select"
             >
-              <option />
-              <option value="ff0000">Green Beans</option>
-              <option value="00ff00">Roasted Beans</option>
-              <option value="0000ff">...</option>
+              <option value="-----">----</option>
+              {produk &&
+                produk.map((value) => {
+                  return <option key={value.id}> {value.namaProduk}</option>;
+                })}
             </Field>
           </div>
         </div>
@@ -51,10 +86,11 @@ const DaftarBatchForm = (props) => {
               name="pilihSupplier"
               component="select"
             >
-              <option />
-              <option value="ff0000">Lokasi A</option>
-              <option value="00ff00">Lokasi B</option>
-              <option value="0000ff">...</option>
+              <option value="-----">----</option>
+              {supplier &&
+                supplier.map((value) => {
+                  return <option key={value.id}> {value.namaSupplier}</option>;
+                })}
             </Field>
           </div>
         </div>
