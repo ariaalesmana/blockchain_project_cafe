@@ -23,44 +23,31 @@ const DaftarProdukForm = (props) => {
     getBatch();
   }, []);
 
-  const handleClick = (value) => {
-    console.log(value);
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="component grosir">
         <div>
           <label>
             <h2 className="grosir">Batch ID</h2>
-            {batch &&
-              batch.map((value) => {
-                return (
-                  <h1 key={value.id} value={value.id}>
-                    {value.batchID}
-                  </h1>
-                );
-              })}
           </label>
           <div>
             <Field
               className="textInput grosir"
               name="batchID"
-              component="input"
-              type="text"
-              placeholder="Masukkan Batch ID"
-            />
+              component="select"
+            >
+              <option value="-----">----</option>
+              {batch &&
+                batch.map((value) => {
+                  return (
+                    <option key={value.id} value={value.id}>
+                      {value.batchID}
+                    </option>
+                  );
+                })}
+            </Field>
           </div>
         </div>
-
-        <button
-          className="cancelButton grosir"
-          type="button"
-          disabled={pristine || submitting}
-          // onClick={handleClick(batchIDValue)}
-        >
-          Check BatchID
-        </button>
 
         <div>
           <label>
