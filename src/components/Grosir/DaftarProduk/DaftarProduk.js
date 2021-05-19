@@ -9,10 +9,13 @@ const DaftarProduk = () => {
   const db = firebase.firestore();
 
   const handleSubmit = (values) => {
-    // db.collection("produk").add({
-    //   namaJenis: values.namaJenis,
-    //   deskripsiJenis: values.deskripsiJenis,
-    // });
+    db.collection("produk").add({
+      batchID: values.batchID,
+      sku: values.sku,
+      namaProduk: values.namaProduk,
+      tanggalProduksi: values.tanggalProduksi,
+      gambarProduk: null,
+    });
 
     showResults(values);
   };
