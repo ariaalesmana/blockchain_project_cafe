@@ -13,7 +13,6 @@ const DaftarJenis = () => {
       namaJenis: values.namaJenis,
       deskripsiJenis: values.deskripsiJenis,
     });
-
     showResults(values);
   };
 

@@ -4,10 +4,14 @@ import firebase from "../../../firebase";
 
 const DaftarBatchForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
-  // const [selectedFile, setSelectedFile] = useState(null);
 
   const [jenis, setJenis] = useState([]);
   const [supplier, setSupplier] = useState([]);
+
+  useEffect(() => {
+    getProduk();
+    getSupplier();
+  }, []);
 
   const getProduk = async () => {
     const events = await firebase.firestore().collection("jenis");
@@ -31,10 +35,10 @@ const DaftarBatchForm = (props) => {
     });
   };
 
-  useEffect(() => {
-    getProduk();
-    getSupplier();
-  }, []);
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    props.onSelectImage(file);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -117,14 +121,52 @@ const DaftarBatchForm = (props) => {
 
         <div>
           <label>
-            <h2 className="grosir">Gambar Panen</h2>
+            <h2 className="grosir">Varietas</h2>
           </label>
           <div>
             <Field
               className="textInput grosir"
+              name="varietas"
+              component="input"
+              type="text"
+              placeholder="Masukkan Varietas"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label>
+            <h2 className="grosir">Proses</h2>
+          </label>
+          <div>
+            <Field
+              className="textInput grosir"
+              name="proses"
+              component="input"
+              type="text"
+              placeholder="Masukkan Proses"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label>
+            <h2 className="grosir">Gambar Panen</h2>
+          </label>
+          <div>
+            {/* <Field
+              className="textInput grosir"
               name="gambarPanen"
               component="input"
               type="file"
+              accept=".jpg, .png, .jpeg"
+            /> */}
+            <input
+              className="textInput grosir"
+              name="gambarPanen"
+              component="input"
+              type="file"
+              onChange={onFileChange}
             />
           </div>
         </div>

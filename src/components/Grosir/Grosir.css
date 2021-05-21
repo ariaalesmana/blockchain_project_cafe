@@ -91,6 +91,19 @@ h2.grosir {
   padding: 0.5%;
 }
 
+.divSatuan.grosir {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "header main";
+  grid-template-columns: 1fr 8fr;
+}
+
+.textInputSatuan.grosir {
+  width: 50%;
+  height: 30px;
+  padding: 0.5%;
+}
+
 .textAreaInput.grosir {
   padding: 0.5%;
   width: stretch;

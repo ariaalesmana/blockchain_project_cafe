@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
 import firebase from "../../../firebase";
 
 const DaftarProdukForm = (props) => {
@@ -9,7 +8,10 @@ const DaftarProdukForm = (props) => {
   const [batch, setBatch] = useState([]);
 
   const getBatch = async () => {
-    const events = await firebase.firestore().collection("batch");
+    const events = await firebase
+      .firestore()
+      .collection("batch")
+      .orderBy("tanggalPanen", "desc");
     events.get().then((querySnapshot) => {
       const tempDoc = [];
       querySnapshot.forEach((doc) => {
@@ -22,6 +24,11 @@ const DaftarProdukForm = (props) => {
   useEffect(() => {
     getBatch();
   }, []);
+
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    props.onSelectImage(file);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -95,14 +102,37 @@ const DaftarProdukForm = (props) => {
 
         <div>
           <label>
+            <h2 className="grosir">Bobot</h2>
+          </label>
+          <div className="divSatuan">
+            <Field
+              className="textInputSatuan grosir"
+              name="bobot"
+              component="input"
+              type="text"
+              placeholder="Masukkan Bobot"
+            />
+            <span style={{ marginLeft: "1rem" }}>gr</span>
+          </div>
+        </div>
+
+        <div>
+          <label>
             <h2 className="grosir">Gambar Produk</h2>
           </label>
           <div>
-            <Field
+            {/* <Field
               className="textInput grosir"
               name="gambarProduk"
               component="input"
               type="file"
+            /> */}
+            <input
+              className="textInput grosir"
+              name="gambarProduk"
+              component="input"
+              type="file"
+              onChange={onFileChange}
             />
           </div>
         </div>

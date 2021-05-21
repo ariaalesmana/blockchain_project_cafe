@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import showResults from "../../showResults/showResults";
@@ -7,15 +7,42 @@ import DaftarProdukForm from "./DaftarProdukForm";
 
 const DaftarProduk = () => {
   const db = firebase.firestore();
+  const [imageFile, setImageFile] = useState(null);
+  const storage = firebase.storage();
+
+  const onFileChange = (file) => {
+    setImageFile(file);
+  };
+
+  const uploadToFirebase = (file, imagePath) => {
+    if (file) {
+      const storageRef = storage.ref();
+
+      const imageRef = storageRef.child("produk/" + imagePath);
+      imageRef.put(file).then(() => {});
+    } else {
+    }
+  };
 
   const handleSubmit = (values) => {
-    db.collection("produk").add({
-      batchID: values.batchID,
-      sku: values.sku,
-      namaProduk: values.namaProduk,
-      tanggalProduksi: values.tanggalProduksi,
-      gambarProduk: null,
-    });
+    db.collection("produk")
+      .add({
+        batchID: values.batchID,
+        sku: values.sku,
+        namaProduk: values.namaProduk,
+        tanggalProduksi: values.tanggalProduksi,
+        bobot: values.bobot,
+        gambarProduk: "",
+      })
+      .then((docRef) => {
+        const dbRef = db.collection("produk").doc(docRef.id);
+        dbRef.update({ gambarProduk: docRef.id });
+
+        uploadToFirebase(imageFile, docRef.id);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
 
     showResults(values);
   };
@@ -32,7 +59,7 @@ const DaftarProduk = () => {
 
       <div className="garis grosir"></div>
 
-      <DaftarProdukForm onSubmit={handleSubmit} />
+      <DaftarProdukForm onSubmit={handleSubmit} onSelectImage={onFileChange} />
     </Fragment>
   );
 };
