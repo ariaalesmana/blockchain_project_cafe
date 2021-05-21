@@ -108,14 +108,15 @@ const DaftarBatchForm = (props) => {
           <label>
             <h2 className="grosir">Volume</h2>
           </label>
-          <div>
+          <div className="divSatuan">
             <Field
-              className="textInput grosir"
+              className="textInputSatuan grosir"
               name="volume"
               component="input"
               type="number"
               placeholder="Masukkan Volume Produk"
             />
+            <span style={{ marginLeft: "1rem" }}>kg</span>
           </div>
         </div>
 

@@ -102,7 +102,7 @@ const DaftarProdukForm = (props) => {
 
         <div>
           <label>
-            <h2 className="grosir">Bobot</h2>
+            <h2 className="grosir">Berat</h2>
           </label>
           <div className="divSatuan">
             <Field
