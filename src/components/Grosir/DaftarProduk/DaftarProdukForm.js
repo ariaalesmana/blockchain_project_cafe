@@ -25,11 +25,6 @@ const DaftarProdukForm = (props) => {
     getBatch();
   }, []);
 
-  const onFileChange = (e) => {
-    const file = e.target.files[0];
-    props.onSelectImage(file);
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="component grosir">
@@ -113,27 +108,6 @@ const DaftarProdukForm = (props) => {
               placeholder="Masukkan Bobot"
             />
             <span style={{ marginLeft: "1rem" }}>gr</span>
-          </div>
-        </div>
-
-        <div>
-          <label>
-            <h2 className="grosir">Gambar Produk</h2>
-          </label>
-          <div>
-            {/* <Field
-              className="textInput grosir"
-              name="gambarProduk"
-              component="input"
-              type="file"
-            /> */}
-            <input
-              className="textInput grosir"
-              name="gambarProduk"
-              component="input"
-              type="file"
-              onChange={onFileChange}
-            />
           </div>
         </div>
 
