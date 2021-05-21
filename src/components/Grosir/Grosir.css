@@ -7,7 +7,8 @@ body {
   height: 4rem;
   width: 4rem;
   margin: auto;
-  background-color: rgba(75, 78, 75, 0.363);
+  /* background-color: rgba(75, 78, 75, 0.363); */
+  background-color: #00c4cc;
   border-radius: 50%;
   display: inline-block;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -72,6 +73,7 @@ h1.grosir {
   margin-left: 20%;
   margin-right: 20%;
   background-color: rgba(192, 192, 192, 0.445);
+  /* background-color: #00c4cc; */
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
 }
@@ -122,6 +124,7 @@ button.grosir {
 .cancelButton.grosir {
   color: white;
   background-color: grey;
+  background-color: #00c4cc;
   font-size: 20px;
   grid-area: cancelButton;
 }
@@ -143,7 +146,8 @@ button.grosir {
 }
 
 .submitButton.grosir:hover {
-  background-color: grey;
+  /* background-color: grey; */
+  background-color: #00c4cc;
   color: white;
 }
 
