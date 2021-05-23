@@ -9,11 +9,31 @@ const DaftarJenis = () => {
   const db = firebase.firestore();
 
   const handleSubmit = (values) => {
-    db.collection("jenis").add({
-      namaJenis: values.namaJenis,
-      deskripsiJenis: values.deskripsiJenis,
-    });
-    showResults(values);
+    // db.collection("jenis").add({
+    //   namaJenis: values.namaJenis,
+    //   deskripsiJenis: values.deskripsiJenis,
+    // });
+    // showResults(values);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(values);
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+      // mode: "no-cors",
+    };
+
+    console.log(requestOptions.body);
+
+    fetch("http://localhost:3001/daftarJenis", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 
   return (
