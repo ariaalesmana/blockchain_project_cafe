@@ -1,19 +1,10 @@
 import { Fragment } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
-import showResults from "../../showResults/showResults";
-import firebase from "../../../firebase";
 import DaftarJenisForm from "./DaftarJenisForm";
 
 const DaftarJenis = () => {
-  const db = firebase.firestore();
-
   const handleSubmit = (values) => {
-    // db.collection("jenis").add({
-    //   namaJenis: values.namaJenis,
-    //   deskripsiJenis: values.deskripsiJenis,
-    // });
-    // showResults(values);
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -25,7 +16,6 @@ const DaftarJenis = () => {
       headers: myHeaders,
       body: raw,
       redirect: "follow",
-      // mode: "no-cors",
     };
 
     console.log(requestOptions.body);

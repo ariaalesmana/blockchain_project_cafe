@@ -1,20 +1,29 @@
 import { Fragment } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
-import showResults from "../../showResults/showResults";
 import DaftarSupplierForm from "./DaftarSupplierForm";
-import firebase from "../../../firebase";
 
 const DaftarSupplier = () => {
-  const db = firebase.firestore();
 
   const handleSubmit = (values) => {
-    db.collection("supplier").add({
-      namaSupplier: values.namaSupplier,
-      lokasiSupplier: values.lokasiSupplier,
-    });
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    showResults(values);
+    var raw = JSON.stringify(values);
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    console.log(requestOptions.body);
+
+    fetch("http://localhost:3001/daftarSupplier", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 
   return (

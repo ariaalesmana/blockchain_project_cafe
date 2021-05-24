@@ -26,7 +26,16 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {};
+exports.findAll = (req, res) => {
+  Jenis.getAll((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Jenis.",
+      });
+    else res.send(data);
+  });
+};
 
 // Find a single Tutorial with an id
 exports.findOne = (req, res) => {};

@@ -25,29 +25,20 @@ const DaftarBatch = () => {
   };
 
   const handleSubmit = (values) => {
-    db.collection("batch")
-      .doc(values.batchID)
-      .set({
-        batchID: values.batchID,
-        pilihJenis: values.pilihJenis,
-        pilihSupplier: values.pilihSupplier,
-        volume: values.volume,
-        varietas: values.varietas,
-        proses: values.proses,
-        gambar: "",
-        tanggalPanen: values.tanggalPanen,
-      })
-      .then(() => {
-        const dbRef = db.collection("batch").doc(values.batchID);
-        dbRef.update({ gambar: values.batchID });
-
-        uploadToFirebase(imageFile, values.batchID);
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-
-    showResults(values);
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
+    // var raw = JSON.stringify(values);
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: myHeaders,
+    //   body: raw,
+    //   redirect: "follow",
+    // };
+    // console.log(requestOptions.body);
+    // fetch("http://localhost:3001/daftarBatch", requestOptions)
+    //   .then((response) => response.text())
+    //   .then((result) => console.log(result))
+    //   .catch((error) => console.log("error", error));
   };
 
   return (

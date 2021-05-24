@@ -9,29 +9,35 @@ const DaftarBatchForm = (props) => {
   const [supplier, setSupplier] = useState([]);
 
   useEffect(() => {
-    getProduk();
+    getJenis();
     getSupplier();
   }, []);
 
-  const getProduk = async () => {
-    const events = await firebase.firestore().collection("jenis");
-    events.get().then((querySnapshot) => {
-      const tempDoc = [];
-      querySnapshot.forEach((doc) => {
-        tempDoc.push({ id: doc.id, ...doc.data() });
-      });
-      setJenis(tempDoc);
+  const getJenis = async () => {
+    var request = require("request");
+    var options = {
+      method: "GET",
+      url: "http://localhost:3001/getJenis",
+      headers: {},
+    };
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      var obj = JSON.parse(response.body);
+      setJenis(obj);
     });
   };
 
   const getSupplier = async () => {
-    const events = await firebase.firestore().collection("supplier");
-    events.get().then((querySnapshot) => {
-      const tempDoc = [];
-      querySnapshot.forEach((doc) => {
-        tempDoc.push({ id: doc.id, ...doc.data() });
-      });
-      setSupplier(tempDoc);
+    var request = require("request");
+    var options = {
+      method: "GET",
+      url: "http://localhost:3001/getSupplier",
+      headers: {},
+    };
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      var obj = JSON.parse(response.body);
+      setSupplier(obj);
     });
   };
 

@@ -3,4 +3,7 @@ module.exports = (app) => {
 
   // Create a new Customer
   app.post("/daftarSupplier", supplier.create);
+
+  // Retrieve all Customers
+  app.get("/getSupplier", supplier.findAll);
 };

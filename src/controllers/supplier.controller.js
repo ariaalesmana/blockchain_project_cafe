@@ -19,7 +19,19 @@ exports.create = (req, res) => {
   Supplier.create(supplier, (err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while creating Jenis.",
+        message: err.message || "Some error occurred while creating Supplier.",
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all Tutorials from the database.
+exports.findAll = (req, res) => {
+  Supplier.getAll((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Supplier.",
       });
     else res.send(data);
   });
