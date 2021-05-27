@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import DaftarJenisForm from "./DaftarJenisForm";
+import showResults from "../../showResults/showResults";
 
 const DaftarJenis = () => {
   const handleSubmit = (values) => {
-
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -24,20 +24,12 @@ const DaftarJenis = () => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+
+    showResults("Dimasukkan");
   };
 
   return (
     <Fragment>
-      <div className="title grosir">
-        <span className="lingkaran grosir"></span>
-        <div className="heading grosir">
-          <span className="grosir">Pemasukkan Data Jenis</span>
-          <h1 className="grosir">Daftar Jenis</h1>
-        </div>
-      </div>
-
-      <div className="garis grosir"></div>
-
       <DaftarJenisForm onSubmit={handleSubmit} />
     </Fragment>
   );

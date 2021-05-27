@@ -6,4 +6,7 @@ module.exports = (app) => {
 
   // Retrieve all Customers
   app.get("/getSupplier", supplier.findAll);
+
+  // Delete a Customer with customerId
+  app.delete("/deleteSupplier/:supplierID", supplier.delete);
 };

@@ -22,16 +22,6 @@ const DaftarProduk = () => {
 
   return (
     <Fragment>
-      <div className="title grosir">
-        <span className="lingkaran grosir"></span>
-        <div className="heading grosir">
-          <span className="grosir">Pemasukkan Data Produk</span>
-          <h1 className="grosir">Daftar Produk</h1>
-        </div>
-      </div>
-
-      <div className="garis grosir"></div>
-
       <DaftarProdukForm onSubmit={handleSubmit} />
     </Fragment>
   );

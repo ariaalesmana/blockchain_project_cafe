@@ -30,8 +30,7 @@ exports.findAll = (req, res) => {
   Jenis.getAll((err, data) => {
     if (err)
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Jenis.",
+        message: err.message || "Some error occurred while retrieving Jenis.",
       });
     else res.send(data);
   });
@@ -44,7 +43,21 @@ exports.findOne = (req, res) => {};
 exports.update = (req, res) => {};
 
 // Delete a Tutorial with the specified id in the request
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  Jenis.remove(req.params.jenisID, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Jenis with id ${req.params.jenisID}.`,
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Jenis with id " + req.params.jenisID,
+        });
+      }
+    } else res.send({ message: `Jenis was deleted successfully!` });
+  });
+};
 
 // Delete all Tutorials from the database.
 exports.deleteAll = (req, res) => {};

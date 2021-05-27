@@ -36,3 +36,19 @@ exports.findAll = (req, res) => {
     else res.send(data);
   });
 };
+
+exports.delete = (req, res) => {
+  Supplier.remove(req.params.supplierID, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Supplier with id ${req.params.supplierID}.`,
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Supplier with id " + req.params.supplierID,
+        });
+      }
+    } else res.send({ message: `Supplier was deleted successfully!` });
+  });
+};

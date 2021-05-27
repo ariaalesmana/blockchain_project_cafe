@@ -32,4 +32,23 @@ Supplier.getAll = (result) => {
   });
 };
 
+Supplier.remove = (id, result) => {
+  sql.query("DELETE FROM supplier WHERE id = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not found Jenis with the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted supplier with id: ", id);
+    result(null, res);
+  });
+};
+
 module.exports = Supplier;

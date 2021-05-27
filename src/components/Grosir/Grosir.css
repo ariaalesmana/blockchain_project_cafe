@@ -114,48 +114,32 @@ h2.grosir {
 }
 
 button.grosir {
-  height: 50px;
-  width: 200px;
+  height: 30px;
+  width: 70px;
   margin: 1%;
-  border-radius: 10px;
+  border-radius: 5px;
   transition-duration: 0.4s;
 }
 
 .cancelButton.grosir {
   color: white;
-  background-color: grey;
-  background-color: #00c4cc;
-  font-size: 20px;
+  background-color: #e55353;
+  font-size: 14px;
   grid-area: cancelButton;
 }
 
 .submitButton.grosir {
-  color: grey;
-  background-color: white;
-  font-size: 20px;
-  border: 2px solid grey;
-  grid-area: submitButton;
-}
-
-.cancelButton.grosir:hover {
-  color: grey;
-  background-color: white;
-  font-size: 20px;
-  border: 2px solid grey;
-  grid-area: cancelButton;
-}
-
-.submitButton.grosir:hover {
-  /* background-color: grey; */
-  background-color: #00c4cc;
   color: white;
+  background-color: #321fdb;
+  font-size: 14px;
+  grid-area: submitButton;
 }
 
 .footer.grosir {
   text-align: center;
   margin: auto;
   margin-top: 5%;
-  grid-template-areas: "cancelButton submitButton";
+  grid-template-areas: "submitButton cancelButton";
   grid-template-columns: 1fr 1fr;
 }
 
