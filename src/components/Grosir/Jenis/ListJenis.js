@@ -9,6 +9,12 @@ import {
   CDataTable,
   CRow,
   CButton,
+  CNav,
+  CNavItem,
+  CNavLink,
+  CTabContent,
+  CTabPane,
+  CTabs,
 } from "@coreui/react";
 import showResults from "../../showResults/showResults";
 
@@ -48,9 +54,31 @@ const ListJenis = () => {
     getJenis();
   };
 
-  const fields = [
-    { key: "namaJenis", _style: { width: "40%" } },
-    { key: "deskripsiJenis", _style: { width: "30%" } },
+  const fieldJenis = [
+    { key: "namaJenis", label: "Nama", _style: { width: "40%" } },
+    { key: "deskripsiJenis", label: "Deskripsi", _style: { width: "30%" } },
+    {
+      key: "show_details",
+      label: "",
+      _style: { width: "10%" },
+      filter: false,
+    },
+  ];
+
+  const fieldBiji = [
+    { key: "namaJenis", label: "Nama", _style: { width: "40%" } },
+    { key: "deskripsiJenis", label: "Deskripsi", _style: { width: "30%" } },
+    {
+      key: "show_details",
+      label: "",
+      _style: { width: "10%" },
+      filter: false,
+    },
+  ];
+
+  const fieldProses = [
+    { key: "namaJenis", label: "Nama", _style: { width: "40%" } },
+    { key: "deskripsiJenis", label: "Deskripsi", _style: { width: "30%" } },
     {
       key: "show_details",
       label: "",
@@ -66,46 +94,178 @@ const ListJenis = () => {
           <CRow>
             <CCol xs="12">
               <CCard>
-                <CCardHeader>
-                  <CRow>
-                    <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                      <h4 style={{ margin: "auto" }}>List Jenis</h4>
-                    </CCol>
-                    <CCol>
-                      <CButton block color="dark" to="/listJenis/daftar">
-                        Tambah Jenis
-                      </CButton>
-                    </CCol>
-                  </CRow>
-                </CCardHeader>
                 <CCardBody>
-                  <CDataTable
-                    items={jenis}
-                    fields={fields}
-                    itemsPerPage={10}
-                    pagination
-                    scopedSlots={{
-                      show_details: (item) => {
-                        return (
-                          <td className="py-2">
-                            <CButton size="sm" color="info">
-                              Edit
-                            </CButton>
-                            <CButton
-                              size="sm"
-                              color="danger"
-                              className="ml-1"
-                              onClick={() => {
-                                deleteJenis(item.id);
-                              }}
+                  <CTabs>
+                    <CNav variant="tabs">
+                      <CNavItem>
+                        <CNavLink>Biji</CNavLink>
+                      </CNavItem>
+                      <CNavItem>
+                        <CNavLink>Jenis</CNavLink>
+                      </CNavItem>
+                      <CNavItem>
+                        <CNavLink>Proses</CNavLink>
+                      </CNavItem>
+                    </CNav>
+                    <CTabContent>
+                      <CTabPane>
+                        <CCardHeader>
+                          <CRow>
+                            <CCol
+                              xs={6}
+                              md={7}
+                              lg={10}
+                              style={{ margin: "auto" }}
                             >
-                              Hapus
-                            </CButton>
-                          </td>
-                        );
-                      },
-                    }}
-                  />
+                              <h4 style={{ margin: "auto" }}>Data Biji</h4>
+                            </CCol>
+                            <CCol>
+                              <CButton
+                                block
+                                color="dark"
+                                // to="/listJenis/daftar"
+                              >
+                                Tambah Data
+                              </CButton>
+                            </CCol>
+                          </CRow>
+                        </CCardHeader>
+                        <CCardBody>
+                          <CDataTable
+                            // items={jenis}
+                            fields={fieldBiji}
+                            itemsPerPage={10}
+                            pagination
+                            scopedSlots={{
+                              show_details: (item) => {
+                                return (
+                                  <td className="py-2">
+                                    <CButton size="sm" color="info">
+                                      Edit
+                                    </CButton>
+                                    <CButton
+                                      size="sm"
+                                      color="danger"
+                                      className="ml-1"
+                                      onClick={() => {
+                                        deleteJenis(item.id);
+                                      }}
+                                    >
+                                      Hapus
+                                    </CButton>
+                                  </td>
+                                );
+                              },
+                            }}
+                          />
+                        </CCardBody>
+                      </CTabPane>
+                      <CTabPane>
+                        <CCardHeader>
+                          <CRow>
+                            <CCol
+                              xs={6}
+                              md={7}
+                              lg={10}
+                              style={{ margin: "auto" }}
+                            >
+                              <h4 style={{ margin: "auto" }}>Data Jenis</h4>
+                            </CCol>
+                            <CCol>
+                              <CButton
+                                block
+                                color="dark"
+                                to="/listJenis/daftar"
+                              >
+                                Tambah Data
+                              </CButton>
+                            </CCol>
+                          </CRow>
+                        </CCardHeader>
+                        <CCardBody>
+                          <CDataTable
+                            items={jenis}
+                            fields={fieldJenis}
+                            itemsPerPage={10}
+                            pagination
+                            scopedSlots={{
+                              show_details: (item) => {
+                                return (
+                                  <td className="py-2">
+                                    <CButton size="sm" color="info">
+                                      Edit
+                                    </CButton>
+                                    <CButton
+                                      size="sm"
+                                      color="danger"
+                                      className="ml-1"
+                                      onClick={() => {
+                                        deleteJenis(item.id);
+                                      }}
+                                    >
+                                      Hapus
+                                    </CButton>
+                                  </td>
+                                );
+                              },
+                            }}
+                          />
+                        </CCardBody>
+                      </CTabPane>
+                      <CTabPane>
+                        <CCardHeader>
+                          <CRow>
+                            <CCol
+                              xs={6}
+                              md={7}
+                              lg={10}
+                              style={{ margin: "auto" }}
+                            >
+                              <h4 style={{ margin: "auto" }}>Data Proses</h4>
+                            </CCol>
+                            <CCol>
+                              <CButton
+                                block
+                                color="dark"
+                                // to="/listJenis/daftar"
+                              >
+                                Tambah Data
+                              </CButton>
+                            </CCol>
+                          </CRow>
+                        </CCardHeader>
+                        <CCardBody>
+                          <CDataTable
+                            // items={jenis}
+                            fields={fieldProses}
+                            itemsPerPage={10}
+                            pagination
+                            scopedSlots={{
+                              show_details: (item) => {
+                                return (
+                                  <td className="py-2">
+                                    <CButton size="sm" color="info">
+                                      Edit
+                                    </CButton>
+                                    <CButton
+                                      size="sm"
+                                      color="danger"
+                                      className="ml-1"
+                                      onClick={() => {
+                                        deleteJenis(item.id);
+                                      }}
+                                    >
+                                      Hapus
+                                    </CButton>
+                                  </td>
+                                );
+                              },
+                            }}
+                          />
+                        </CCardBody>
+                      </CTabPane>
+                    </CTabContent>
+                  </CTabs>
                 </CCardBody>
               </CCard>
             </CCol>

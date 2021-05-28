@@ -1,11 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import "./Header.css";
 import "./HeaderMedia.css";
 import {
-  CCard,
-  CCardBody,
-  CCardHeader,
   CCollapse,
   CDropdownItem,
   CDropdownMenu,
@@ -13,20 +9,14 @@ import {
   CNavbar,
   CNavbarNav,
   CNavbarBrand,
-  CNavbarText,
   CToggler,
   CNavLink,
   CDropdown,
-  CForm,
-  CInput,
-  CButton,
   CImg,
 } from "@coreui/react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const [navbarText, setNavbarText] = useState(false);
   return (
     // <div className="header">
     //   <Link to="/" className="headerLogo">
@@ -62,18 +52,18 @@ const Header = () => {
     //   </NavLink>
     // </div>
 
-    <CNavbar expandable="sm" color="dark">
+    <CNavbar expandable="sm" color="dark"> 
       <CToggler inNavbar onClick={() => setIsOpen(!isOpen)} />
       <CNavbarBrand href="/">
         <CImg
           src="images/logo-kopi-ketjil.png"
           className="d-inline-block align-top"
-          alt="CoreuiVue"
+          alt="logo-kopi-ketjil"
         />
       </CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink to="/listJenis">Jenis</CNavLink>
+          <CNavLink to="/listJenis">Biji</CNavLink>
           <CNavLink to="/listSupplier">Supplier</CNavLink>
           <CNavLink to="/listBatch">Batch</CNavLink>
           <CNavLink to="/listProduk">Produk</CNavLink>

@@ -10,7 +10,7 @@ import {
   CRow,
   CButton,
 } from "@coreui/react";
-import showResults from "../../showResults/showResults";
+// import showResults from "../../showResults/showResults";
 
 const ListProduk = () => {
   const [produk, setProduk] = useState([]);
@@ -71,11 +71,11 @@ const ListProduk = () => {
                 <CCardHeader>
                   <CRow>
                     <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                      <h4 style={{ margin: "auto" }}>List Produk</h4>
+                      <h4 style={{ margin: "auto" }}>Data Produk</h4>
                     </CCol>
                     <CCol>
                       <CButton block color="dark" to="/listProduk/daftar">
-                        Tambah Produk
+                        Tambah Data
                       </CButton>
                     </CCol>
                   </CRow>

@@ -49,8 +49,8 @@ const ListSupplier = () => {
   };
 
   const fields = [
-    { key: "namaSupplier", _style: { width: "40%" } },
-    { key: "lokasiSupplier", _style: { width: "30%" } },
+    { key: "namaSupplier", label: "Nama", _style: { width: "40%" } },
+    { key: "lokasiSupplier", label: "Asal", _style: { width: "30%" } },
     {
       key: "show_details",
       label: "",
@@ -69,11 +69,11 @@ const ListSupplier = () => {
                 <CCardHeader>
                   <CRow>
                     <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                      <h4 style={{ margin: "auto" }}>List Supplier</h4>
+                      <h4 style={{ margin: "auto" }}>Data Supplier</h4>
                     </CCol>
                     <CCol>
                       <CButton block color="dark" to="/listSupplier/daftar">
-                        Tambah Supplier
+                        Tambah Data
                       </CButton>
                     </CCol>
                   </CRow>

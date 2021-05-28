@@ -8,15 +8,13 @@ import {
   CForm,
   CFormGroup,
   CLabel,
-  CInput,
-  CFormText,
   CCardFooter,
   CRow,
   CCol,
 } from "@coreui/react";
 
 const DaftarJenisForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, reset } = props;
 
   return (
     <form onSubmit={handleSubmit}>

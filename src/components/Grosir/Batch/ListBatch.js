@@ -10,7 +10,7 @@ import {
   CRow,
   CButton,
 } from "@coreui/react";
-import showResults from "../../showResults/showResults";
+// import showResults from "../../showResults/showResults";
 
 const ListBatch = () => {
   const [batch, setBatch] = useState([]);
@@ -49,11 +49,11 @@ const ListBatch = () => {
 
   const fields = [
     { key: "batchID", _style: { width: "16%" } },
-    { key: "pilihJenis", _style: { width: "14%" } },
-    { key: "pilihSupplier", _style: { width: "14%" } },
-    { key: "volume", _style: { width: "14%" } },
-    { key: "varietas", _style: { width: "14%" } },
-    { key: "proses", _style: { width: "14%" } },
+    { key: "pilihJenis", label: "Biji", _style: { width: "14%" } },
+    { key: "", label: "Jenis", _style: { width: "14%" } },
+    { key: "", label: "Proses", _style: { width: "14%" } },
+    { key: "pilihSupplier", label: "Supplier", _style: { width: "14%" } },
+    { key: "asal", _style: { width: "14%" } },
     {
       key: "show_details",
       label: "",
@@ -72,11 +72,11 @@ const ListBatch = () => {
                 <CCardHeader>
                   <CRow>
                     <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                      <h4 style={{ margin: "auto" }}>List Batch</h4>
+                      <h4 style={{ margin: "auto" }}>Data Batch</h4>
                     </CCol>
                     <CCol>
                       <CButton block color="dark" to="/listBatch/daftar">
-                        Tambah Batch
+                        Tambah Data
                       </CButton>
                     </CCol>
                   </CRow>

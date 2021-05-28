@@ -8,8 +8,6 @@ import {
   CForm,
   CFormGroup,
   CLabel,
-  CInput,
-  CFormText,
   CCardFooter,
   CRow,
   CCol,
@@ -17,7 +15,7 @@ import {
 } from "@coreui/react";
 
 const DaftarBatchForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, reset } = props;
 
   const [jenis, setJenis] = useState([]);
   const [supplier, setSupplier] = useState([]);
@@ -89,7 +87,7 @@ const DaftarBatchForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-pilihJenis">Pilih Jenis</CLabel>
+                  <CLabel htmlFor="nf-pilihJenis">Pilih Biji</CLabel>
                   <Field
                     className="textInput grosir"
                     name="pilihJenis"
@@ -104,6 +102,26 @@ const DaftarBatchForm = (props) => {
                           </option>
                         );
                       })}
+                  </Field>
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-pilihSupplier">Pilih Jenis</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="pilihSupplier"
+                    component="select"
+                  >
+                    <option value="-----">----</option>
+                  </Field>
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-pilihSupplier">Pilih Proses</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="pilihSupplier"
+                    component="select"
+                  >
+                    <option value="-----">----</option>
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
@@ -139,24 +157,6 @@ const DaftarBatchForm = (props) => {
                   <CCol xs="2" style={{ margin: "auto" }}>
                     <span>kg</span>
                   </CCol>
-                </CFormGroup>
-                <CFormGroup>
-                  <CLabel htmlFor="nf-varietas">Varietas</CLabel>
-                  <Field
-                    className="textInput grosir"
-                    name="varietas"
-                    component="input"
-                    type="text"
-                  />
-                </CFormGroup>
-                <CFormGroup>
-                  <CLabel htmlFor="nf-proses">Proses</CLabel>
-                  <Field
-                    className="textInput grosir"
-                    name="proses"
-                    component="input"
-                    type="text"
-                  />
                 </CFormGroup>
                 <CFormGroup row>
                   <CLabel col xs="12" htmlFor="file-gambarPanen">
