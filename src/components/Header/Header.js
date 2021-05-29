@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import "./Header.css";
 import "./HeaderMedia.css";
 import {
@@ -22,46 +23,19 @@ import {
   CButton,
   CImg,
 } from "@coreui/react";
+import { logout } from "../../actions/auth";
+import { clearMessage } from "../../actions/message";
 
-const Header = () => {
+import { history } from '../../helpers/history';
+
+
+const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const [navbarText, setNavbarText] = useState(false);
+  const logOut = e => {
+    props.dispatch(logout());
+  }
+  
   return (
-    // <div className="header">
-    //   <Link to="/" className="headerLogo">
-    //     <img src="images/logo-kopi-ketjil.png" alt="Logo Kopi Ketjil" />
-    //   </Link>
-    //   <NavLink
-    //     to="/daftarJenis"
-    //     className="headerUnit"
-    //     activeClassName="active"
-    //   >
-    //     <h2>Daftar Jenis</h2>
-    //   </NavLink>
-    //   <NavLink
-    //     to="/daftarSupplier"
-    //     className="headerUnit"
-    //     activeClassName="active"
-    //   >
-    //     <h2>Daftar Supplier</h2>
-    //   </NavLink>
-    //   <NavLink
-    //     to="/daftarBatch"
-    //     className="headerUnit"
-    //     activeClassName="active"
-    //   >
-    //     <h2>Daftar Batch</h2>
-    //   </NavLink>
-    //   <NavLink
-    //     to="/daftarProduk"
-    //     className="headerUnit"
-    //     activeClassName="active"
-    //   >
-    //     <h2>Daftar Produk</h2>
-    //   </NavLink>
-    // </div>
-
     <CNavbar expandable="sm" color="dark">
       <CToggler inNavbar onClick={() => setIsOpen(!isOpen)} />
       <CNavbarBrand href="/">
@@ -84,6 +58,9 @@ const Header = () => {
             <CDropdownMenu>
               <CDropdownItem>Account</CDropdownItem>
               <CDropdownItem>Settings</CDropdownItem>
+              <CDropdownItem onClick={logOut}>
+                LogOut
+              </CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
         </CNavbarNav>
