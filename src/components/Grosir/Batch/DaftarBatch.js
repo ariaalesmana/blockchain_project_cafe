@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
-import showResults from "../../showResults/showResults";
+// import showResults from "../../showResults/showResults";
 import DaftarBatchForm from "./DaftarBatchForm";
 
 const DaftarBatch = () => {
@@ -26,6 +26,7 @@ const DaftarBatch = () => {
     //   .then((response) => response.text())
     //   .then((result) => console.log(result))
     //   .catch((error) => console.log("error", error));
+    console.log(imageFile);
   };
 
   return (

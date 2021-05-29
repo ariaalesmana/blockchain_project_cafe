@@ -9,6 +9,12 @@ import {
   CDataTable,
   CRow,
   CButton,
+  CNav,
+  CNavItem,
+  CNavLink,
+  CTabContent,
+  CTabPane,
+  CTabs,
 } from "@coreui/react";
 import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";

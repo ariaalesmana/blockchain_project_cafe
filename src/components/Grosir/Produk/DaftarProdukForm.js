@@ -9,16 +9,13 @@ import {
   CForm,
   CFormGroup,
   CLabel,
-  CInput,
-  CFormText,
   CCardFooter,
   CRow,
   CCol,
-  CInputFile,
 } from "@coreui/react";
 
 const DaftarProdukForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, reset } = props;
 
   const [batch, setBatch] = useState([]);
 

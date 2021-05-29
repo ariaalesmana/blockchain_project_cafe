@@ -1,12 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./Header.css";
 import "./HeaderMedia.css";
 import {
-  CCard,
-  CCardBody,
-  CCardHeader,
   CCollapse,
   CDropdownItem,
   CDropdownMenu,
@@ -14,13 +10,9 @@ import {
   CNavbar,
   CNavbarNav,
   CNavbarBrand,
-  CNavbarText,
   CToggler,
   CNavLink,
   CDropdown,
-  CForm,
-  CInput,
-  CButton,
   CImg,
 } from "@coreui/react";
 import { logout } from "../../actions/auth";
@@ -42,12 +34,12 @@ const Header = props => {
         <CImg
           src="images/logo-kopi-ketjil.png"
           className="d-inline-block align-top"
-          alt="CoreuiVue"
+          alt="logo-kopi-ketjil"
         />
       </CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink to="/listJenis">Jenis</CNavLink>
+          <CNavLink to="/listJenis">Biji</CNavLink>
           <CNavLink to="/listSupplier">Supplier</CNavLink>
           <CNavLink to="/listBatch">Batch</CNavLink>
           <CNavLink to="/listProduk">Produk</CNavLink>
