@@ -21,6 +21,7 @@ import { clearMessage } from "./actions/message";
 import { history } from './helpers/history';
 
 import "./scss/style.scss";
+import Web3Data from './components/Web3Data.js';
 
 class App extends Component {
   constructor(props) {
@@ -56,12 +57,28 @@ class App extends Component {
 
     if (!isLoggedIn) {
       history.push("/login");
+    } else {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if(user !== null) {
+        const exampleJWT = user.token;
+        function getPayload(jwt){
+          return atob(jwt.split(".")[1])
+        }
+        const payload = getPayload(exampleJWT);
+        if (payload.exp < Date.now() / 1000) {
+          localStorage.removeItem("user");
+          history.push("/login");
+        }
+      }
     }
 
     return (
       <Router history={history}>
         { currentUser && 
-          <Header />
+          <div>
+            <Header />
+            <Web3Data/>
+          </div>
         }
         <Route path="/login" exact component={Login} />
         <Route path="/" exact component={HalamanUtama} />
