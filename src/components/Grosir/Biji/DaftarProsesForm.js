@@ -13,7 +13,7 @@ import {
   CCol,
 } from "@coreui/react";
 
-const DaftarJenisForm = (props) => {
+const DaftarBijiForm = (props) => {
   const { handleSubmit, reset } = props;
 
   return (
@@ -24,10 +24,10 @@ const DaftarJenisForm = (props) => {
             <CCardHeader>
               <CRow>
                 <CCol xs={9} md={10} lg={11} style={{ margin: "auto" }}>
-                  <h4 style={{ margin: "auto" }}>Daftar Jenis</h4>
+                  <h4 style={{ margin: "auto" }}>Daftar Proses</h4>
                 </CCol>
                 <CCol>
-                  <CButton block color="dark" to="/listJenis">
+                  <CButton block color="dark" to="/listBiji">
                     <span style={{ color: "white" }}>X</span>
                   </CButton>
                 </CCol>
@@ -36,20 +36,19 @@ const DaftarJenisForm = (props) => {
             <CCardBody>
               <CForm action="" method="post">
                 <CFormGroup>
-                  <CLabel htmlFor="nf-namaJenis">Nama Jenis</CLabel>
+                  <CLabel htmlFor="nf-namaProses">Nama Proses</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="namaJenis"
+                    name="namaProses"
                     component="input"
                     type="text"
-                    placeholder="Masukkan Nama Jenis.."
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-deskripsiJenis">Deskripsi Jenis</CLabel>
+                  <CLabel htmlFor="nf-deskripsiProses">Deskripsi Proses</CLabel>
                   <Field
                     className="textAreaInput grosir"
-                    name="deskripsiJenis"
+                    name="deskripsiProses"
                     component="textarea"
                   />
                 </CFormGroup>
@@ -71,5 +70,5 @@ const DaftarJenisForm = (props) => {
 };
 
 export default reduxForm({
-  form: "daftarJenis", // a unique identifier for this form
-})(DaftarJenisForm);
+  form: "daftarBiji", // a unique identifier for this form
+})(DaftarBijiForm);

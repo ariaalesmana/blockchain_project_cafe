@@ -18,36 +18,35 @@ export default class ListProduk extends Component {
     super(props);
 
     this.state = {
-      content: []
+      content: [],
     };
   }
 
   componentDidMount() {
     UserService.getListProduct().then(
-      response => {
-        console.log('A ' + response.data)
+      (response) => {
+        console.log("A " + response.data);
         this.setState({
-          content: response.data
+          content: response.data,
         });
-        
       },
-      error => {
+      (error) => {
         this.setState({
           content:
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
   }
 
   render() {
-    console.log('B '+this.state.content.product)
+    console.log("B " + this.state.content.product);
     const fields = [
-      { key: 'product', label: 'Nama Produk', _style: { width: "18%" } },
+      { key: "product", label: "Nama Produk", _style: { width: "18%" } },
       { key: "price", _style: { width: "18%" } },
       {
         key: "show_details",
@@ -66,40 +65,43 @@ export default class ListProduk extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>List Produk</h4>
+                        <h4 style={{ margin: "auto" }}>Data Produk</h4>
                       </CCol>
                       <CCol>
                         <CButton block color="dark" to="/listProduk/daftar">
-                          Tambah Produk
+                          Tambah Data
                         </CButton>
                       </CCol>
                     </CRow>
                   </CCardHeader>
                   <CCardBody>
-                  <table className="table table-lg responsive striped bordered hover"  >
-                    <thead>
-                      <tr>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Harga</th>
-                        <th>SKU</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    { this.state.content.product !== undefined ?
-                      this.state.content.product.map(function (element, i) {
-                        return <tr>
-                          <td>{element.product.name}</td>
-                          <td>{element.product.description}</td>
-                          <td>{element.product.price}</td>
-                          <td>{element.product.sku}</td>
-                        </tr>;
-                      })
-                      :
-                      ''
-                    }
-                    </tbody>
-                  </table>
+                    <table className="table table-lg responsive striped bordered hover">
+                      <thead>
+                        <tr>
+                          <th>Nama</th>
+                          <th>Deskripsi</th>
+                          <th>Harga</th>
+                          <th>SKU</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {this.state.content.product !== undefined
+                          ? this.state.content.product.map(function (
+                              element,
+                              i
+                            ) {
+                              return (
+                                <tr>
+                                  <td>{element.product.name}</td>
+                                  <td>{element.product.description}</td>
+                                  <td>{element.product.price}</td>
+                                  <td>{element.product.sku}</td>
+                                </tr>
+                              );
+                            })
+                          : ""}
+                      </tbody>
+                    </table>
                   </CCardBody>
                 </CCard>
               </CCol>

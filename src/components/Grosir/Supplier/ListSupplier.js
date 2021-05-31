@@ -18,26 +18,25 @@ export default class ListSupplier extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: "",
     };
   }
 
   componentDidMount() {
     UserService.getListSupplier().then(
-      response => {
+      (response) => {
         this.setState({
-          content: response.data
+          content: response.data,
         });
-        
       },
-      error => {
+      (error) => {
         this.setState({
           content:
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
@@ -45,8 +44,8 @@ export default class ListSupplier extends Component {
 
   render() {
     const fields = [
-      { key: "nama_supplier", _style: { width: "40%" } },
-      { key: "lokasi_supplier", _style: { width: "30%" } },
+      { key: "nama_supplier", label: "Supplier", _style: { width: "40%" } },
+      { key: "lokasi_supplier", label: "Asal", _style: { width: "30%" } },
       {
         key: "show_details",
         label: "",
@@ -64,18 +63,18 @@ export default class ListSupplier extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>List Supplier</h4>
+                        <h4 style={{ margin: "auto" }}>Data Supplier</h4>
                       </CCol>
                       <CCol>
                         <CButton block color="dark" to="/listSupplier/daftar">
-                          Tambah Supplier
+                          Tambah Data
                         </CButton>
                       </CCol>
                     </CRow>
                   </CCardHeader>
                   <CCardBody>
                     <CDataTable
-                      items={ this.state.content.supplier }
+                      items={this.state.content.supplier}
                       fields={fields}
                       itemsPerPage={10}
                       pagination
@@ -90,9 +89,7 @@ export default class ListSupplier extends Component {
                                 size="sm"
                                 color="danger"
                                 className="ml-1"
-                                onClick={() => {
-                                  
-                                }}
+                                onClick={() => {}}
                               >
                                 Hapus
                               </CButton>

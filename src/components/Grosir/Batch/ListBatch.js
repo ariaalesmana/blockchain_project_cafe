@@ -68,11 +68,11 @@ export default class ListBatch extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>List Batch</h4>
+                        <h4 style={{ margin: "auto" }}>Data Batch</h4>
                       </CCol>
                       <CCol>
                         <CButton block color="dark" to="/listBatch/daftar">
-                          Tambah Batch
+                          Tambah Data
                         </CButton>
                       </CCol>
                     </CRow>
