@@ -45,7 +45,7 @@ const DaftarProdukForm = (props) => {
             <CCardHeader>
               <CRow>
                 <CCol xs={9} md={10} lg={11} style={{ margin: "auto" }}>
-                  <h4 style={{ margin: "auto" }}>Daftar Batch</h4>
+                  <h4 style={{ margin: "auto" }}>Daftar Produk</h4>
                 </CCol>
                 <CCol>
                   <CButton block color="dark" to="/listProduk">
