@@ -21,7 +21,6 @@ import { clearMessage } from "./actions/message";
 import { history } from './helpers/history';
 
 import "./scss/style.scss";
-import Web3Data from './components/Web3Data.js';
 
 class App extends Component {
   constructor(props) {
@@ -76,8 +75,7 @@ class App extends Component {
       <Router history={history}>
         { currentUser && 
           <div>
-            <Header />
-            <Web3Data/>
+            <Header logoutClick={this.logOut} />
           </div>
         }
         <Route path="/login" exact component={Login} />

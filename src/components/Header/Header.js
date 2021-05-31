@@ -23,9 +23,6 @@ import { history } from '../../helpers/history';
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
-  const logOut = e => {
-    props.dispatch(logout());
-  }
   
   return (
     <CNavbar expandable="sm" color="dark">
@@ -50,7 +47,8 @@ const Header = props => {
             <CDropdownMenu>
               <CDropdownItem>Account</CDropdownItem>
               <CDropdownItem>Settings</CDropdownItem>
-              <CDropdownItem onClick={logOut}>
+              <CDropdownItem id="CDropdownItemNewAccount" style={{ display: "none" }}>New Account</CDropdownItem>
+              <CDropdownItem href="/login" onClick={() => props.logoutClick()}>
                 LogOut
               </CDropdownItem>
             </CDropdownMenu>
