@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "https://coffee-dubai.test/api/v1/";
+const API_URL = "http://127.0.0.1:8000/api/v1/";
 
 class UserService {
   getPublicContent() {
@@ -37,11 +37,15 @@ class UserService {
   }
 
   getDetailSupplier(id) {
-    return axios.get(API_URL + "detail-supplier/" + id, { headers: authHeader() });
+    return axios.get(API_URL + "detail-supplier/" + id, {
+      headers: authHeader(),
+    });
   }
 
   deleteSupplier(id) {
-    return axios.get(API_URL + "delete-supplier/" + id, { headers: authHeader() });
+    return axios.get(API_URL + "delete-supplier/" + id, {
+      headers: authHeader(),
+    });
   }
 
   getListBatch() {
@@ -61,11 +65,15 @@ class UserService {
   }
 
   getDetailProduct(id) {
-    return axios.get(API_URL + "detail-product/" + id, { headers: authHeader() });
+    return axios.get(API_URL + "detail-product/" + id, {
+      headers: authHeader(),
+    });
   }
 
   deleteProduct(id) {
-    return axios.get(API_URL + "delete-product/" + id, { headers: authHeader() });
+    return axios.get(API_URL + "delete-product/" + id, {
+      headers: authHeader(),
+    });
   }
 }
 

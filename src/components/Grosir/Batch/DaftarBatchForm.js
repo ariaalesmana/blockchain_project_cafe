@@ -13,6 +13,7 @@ import {
   CCol,
   CInputFile,
 } from "@coreui/react";
+import UserService from "../../../services/user.service";
 
 const DaftarBatchForm = (props) => {
   const { handleSubmit, reset } = props;
@@ -26,31 +27,39 @@ const DaftarBatchForm = (props) => {
   }, []);
 
   const getJenis = async () => {
-    var request = require("request");
-    var options = {
-      method: "GET",
-      url: "http://localhost:3001/getJenis",
-      headers: {},
-    };
-    request(options, function (error, response) {
-      if (error) throw new Error(error);
-      var obj = JSON.parse(response.body);
-      setJenis(obj);
-    });
+    UserService.getListJenis().then(
+      (response) => {
+        setJenis(response.data.jenis);
+      },
+      (error) => {
+        this.setState({
+          content:
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString(),
+        });
+      }
+    );
   };
 
   const getSupplier = async () => {
-    var request = require("request");
-    var options = {
-      method: "GET",
-      url: "http://localhost:3001/getSupplier",
-      headers: {},
-    };
-    request(options, function (error, response) {
-      if (error) throw new Error(error);
-      var obj = JSON.parse(response.body);
-      setSupplier(obj);
-    });
+    UserService.getListSupplier().then(
+      (response) => {
+        setSupplier(response.data.supplier);
+      },
+      (error) => {
+        this.setState({
+          content:
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString(),
+        });
+      }
+    );
   };
 
   const onFileChange = (e) => {
@@ -94,14 +103,6 @@ const DaftarBatchForm = (props) => {
                     component="select"
                   >
                     <option value="-----">----</option>
-                    {jenis &&
-                      jenis.map((value) => {
-                        return (
-                          <option key={value.id} value={value.id}>
-                            {value.namaJenis}
-                          </option>
-                        );
-                      })}
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
@@ -112,6 +113,14 @@ const DaftarBatchForm = (props) => {
                     component="select"
                   >
                     <option value="-----">----</option>
+                    {jenis &&
+                      jenis.map((value) => {
+                        return (
+                          <option key={value.id} value={value.id}>
+                            {value.nama_jenis}
+                          </option>
+                        );
+                      })}
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
@@ -136,7 +145,7 @@ const DaftarBatchForm = (props) => {
                       supplier.map((value) => {
                         return (
                           <option key={value.id} value={value.id}>
-                            {value.namaSupplier}
+                            {value.nama_supplier}
                           </option>
                         );
                       })}
