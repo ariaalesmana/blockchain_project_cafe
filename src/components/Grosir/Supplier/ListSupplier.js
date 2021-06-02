@@ -44,7 +44,7 @@ export default class ListSupplier extends Component {
 
   render() {
     const fields = [
-      { key: "nama_supplier", label: "Supplier", _style: { width: "40%" } },
+      { key: "nama_supplier", label: "Prosesor Kopi", _style: { width: "40%" } },
       { key: "lokasi_supplier", label: "Asal", _style: { width: "30%" } },
       {
         key: "show_details",
@@ -63,7 +63,7 @@ export default class ListSupplier extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>Data Supplier</h4>
+                        <h4 style={{ margin: "auto" }}>Data Prosesor Kopi</h4>
                       </CCol>
                       <CCol>
                         <CButton block color="dark" to="/listSupplier/daftar">

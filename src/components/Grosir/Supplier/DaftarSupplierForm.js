@@ -24,7 +24,7 @@ const DaftarSupplierForm = (props) => {
             <CCardHeader>
               <CRow>
                 <CCol xs={9} md={10} lg={11} style={{ margin: "auto" }}>
-                  <h4 style={{ margin: "auto" }}>Daftar Supplier</h4>
+                  <h4 style={{ margin: "auto" }}>Daftar Prosesor Kopi</h4>
                 </CCol>
                 <CCol>
                   <CButton block color="dark" to="/listSupplier">
@@ -36,7 +36,7 @@ const DaftarSupplierForm = (props) => {
             <CCardBody>
               <CForm action="" method="post">
                 <CFormGroup>
-                  <CLabel htmlFor="nf-namaSupplier">Nama Supplier</CLabel>
+                  <CLabel htmlFor="nf-namaSupplier">Nama Prosesor Kopi</CLabel>
                   <Field
                     className="textInput grosir"
                     name="namaSupplier"

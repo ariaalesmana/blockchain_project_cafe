@@ -36,8 +36,8 @@ const Header = props => {
       </CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink to="/listBiji">Biji</CNavLink>
-          <CNavLink to="/listSupplier">Supplier</CNavLink>
+          <CNavLink to="/listBiji">Biji Kopi</CNavLink>
+          <CNavLink to="/listSupplier">Prosesor Kopi</CNavLink>
           <CNavLink to="/listBatch">Batch</CNavLink>
           <CNavLink to="/listProduk">Produk</CNavLink>
         </CNavbarNav>
