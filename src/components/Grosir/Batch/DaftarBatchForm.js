@@ -19,45 +19,24 @@ const DaftarBatchForm = (props) => {
   const { handleSubmit, reset } = props;
 
   const [jenis, setJenis] = useState([]);
+  const [biji, setBiji] = useState([]);
+  const [proses, setProses] = useState([]);
   const [supplier, setSupplier] = useState([]);
 
   useEffect(() => {
-    getJenis();
-    getSupplier();
+    getData();
   }, []);
 
-  const getJenis = async () => {
-    UserService.getListJenis().then(
+  const getData = async () => {
+    UserService.getAddDetail().then(
       (response) => {
         setJenis(response.data.jenis);
-      },
-      (error) => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
-  };
-
-  const getSupplier = async () => {
-    UserService.getListSupplier().then(
-      (response) => {
+        setBiji(response.data.biji);
+        setProses(response.data.proses);
         setSupplier(response.data.supplier);
       },
       (error) => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString(),
-        });
+        
       }
     );
   };
@@ -85,12 +64,12 @@ const DaftarBatchForm = (props) => {
               </CRow>
             </CCardHeader>
             <CCardBody>
-              <CForm action="" method="post">
-                <CFormGroup>
+              <CForm action="" method="post" enctype="multipart/form-data">
+              <CFormGroup>
                   <CLabel htmlFor="nf-batchID">Batch ID</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="batchID"
+                    name="batch_id"
                     component="input"
                     type="text"
                   />
@@ -99,17 +78,25 @@ const DaftarBatchForm = (props) => {
                   <CLabel htmlFor="nf-pilihJenis">Pilih Biji</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="pilihJenis"
+                    name="biji_id"
                     component="select"
                   >
                     <option value="-----">----</option>
+                    {biji &&
+                      biji.map((value) => {
+                        return (
+                          <option key={value.id} value={value.id}>
+                            {value.nama_biji}
+                          </option>
+                        );
+                      })}
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
                   <CLabel htmlFor="nf-pilihSupplier">Pilih Jenis</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="pilihSupplier"
+                    name="jenis_id"
                     component="select"
                   >
                     <option value="-----">----</option>
@@ -127,17 +114,25 @@ const DaftarBatchForm = (props) => {
                   <CLabel htmlFor="nf-pilihSupplier">Pilih Proses</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="pilihSupplier"
+                    name="proses_id"
                     component="select"
                   >
                     <option value="-----">----</option>
+                    {proses &&
+                      proses.map((value) => {
+                        return (
+                          <option key={value.id} value={value.id}>
+                            {value.nama_proses}
+                          </option>
+                        );
+                      })}
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
                   <CLabel htmlFor="nf-pilihSupplier">Pilih Supplier</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="pilihSupplier"
+                    name="supplier_id"
                     component="select"
                   >
                     <option value="-----">----</option>
@@ -174,7 +169,8 @@ const DaftarBatchForm = (props) => {
                   <CCol xs="12">
                     <CInputFile
                       id="file-input"
-                      name="gambarPanen"
+                      name="gambar"
+                      type='file'
                       onChange={onFileChange}
                     />
                   </CCol>
@@ -183,7 +179,7 @@ const DaftarBatchForm = (props) => {
                   <CLabel htmlFor="nf-tanggalPanen">Tanggal Panen</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="tanggalPanen"
+                    name="tgl_panen"
                     component="input"
                     type="date"
                   />

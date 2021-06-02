@@ -39,7 +39,7 @@ const DaftarBijiForm = (props) => {
                   <CLabel htmlFor="nf-namaProses">Nama Proses</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="namaProses"
+                    name="nama_proses"
                     component="input"
                     type="text"
                   />
@@ -48,7 +48,7 @@ const DaftarBijiForm = (props) => {
                   <CLabel htmlFor="nf-deskripsiProses">Deskripsi Proses</CLabel>
                   <Field
                     className="textAreaInput grosir"
-                    name="deskripsiProses"
+                    name="deskripsi_proses"
                     component="textarea"
                   />
                 </CFormGroup>

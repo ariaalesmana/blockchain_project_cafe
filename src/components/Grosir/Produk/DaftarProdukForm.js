@@ -12,7 +12,9 @@ import {
   CCardFooter,
   CRow,
   CCol,
+  CInputFile
 } from "@coreui/react";
+import UserService from "../../../services/user.service";
 
 const DaftarProdukForm = (props) => {
   const { handleSubmit, reset } = props;
@@ -20,22 +22,24 @@ const DaftarProdukForm = (props) => {
   const [batch, setBatch] = useState([]);
 
   const getBatch = async () => {
-    const events = await firebase
-      .firestore()
-      .collection("batch")
-      .orderBy("tanggalPanen", "desc");
-    events.get().then((querySnapshot) => {
-      const tempDoc = [];
-      querySnapshot.forEach((doc) => {
-        tempDoc.push({ id: doc.id, ...doc.data() });
-      });
-      setBatch(tempDoc);
-    });
+    UserService.getListBatch().then(
+      (response) => {
+        setBatch(response.data.batch);
+      },
+      (error) => {
+        
+      }
+    );
   };
 
   useEffect(() => {
     getBatch();
   }, []);
+
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    props.onSelectImage(file);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -68,26 +72,71 @@ const DaftarProdukForm = (props) => {
                       batch.map((value) => {
                         return (
                           <option key={value.id} value={value.id}>
-                            {value.batchID}
+                            {value.batch_id}
                           </option>
                         );
                       })}
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-SKU">SKU</CLabel>
+                  <CLabel htmlFor="nf-name">Nama Produk</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="SKU"
+                    name="name"
                     component="input"
                     type="text"
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-namaProduk">Nama Produk</CLabel>
+                  <CLabel htmlFor="nf-description">Deskripsi</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="namaProduk"
+                    name="description"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-short_description">Deskripsi Singkat</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="short_description"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-price">Harga</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="price"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-unit">Unit</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="unit"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-sku">SKU</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="sku"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-vendor_sku">VENDOR SKU</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="vendor_sku"
                     component="input"
                     type="text"
                   />
@@ -109,13 +158,26 @@ const DaftarProdukForm = (props) => {
                   </CCol>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-tanggalProduksi">Tanggal Produksi</CLabel>
+                  <CLabel htmlFor="nf-tgl_produksi">Tanggal Produksi</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="tanggalProduksi"
+                    name="tgl_produksi"
                     component="input"
                     type="date"
                   />
+                </CFormGroup>
+                <CFormGroup row>
+                  <CLabel col xs="12" htmlFor="file-gambarPanen">
+                    Gambar Panen
+                  </CLabel>
+                  <CCol xs="12">
+                    <CInputFile
+                      id="file-input"
+                      name="gambar"
+                      type='file'
+                      onChange={onFileChange}
+                    />
+                  </CCol>
                 </CFormGroup>
               </CForm>
             </CCardBody>

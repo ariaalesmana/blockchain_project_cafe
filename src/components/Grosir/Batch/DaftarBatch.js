@@ -1,39 +1,55 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, Component } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 // import showResults from "../../showResults/showResults";
 import DaftarBatchForm from "./DaftarBatchForm";
+import UserService from "../../../services/user.service";
+import showResults from "../../showResults/showResults";
 
-const DaftarBatch = () => {
-  const [imageFile, setImageFile] = useState(null);
+export default class DaftarBatch extends Component {
+  constructor(props) {
+    super(props);
 
-  const onFileChange = (file) => {
-    setImageFile(file);
+    this.state = {
+      imageFile: "",
+    };
+  }
+
+  onFileChange = (file) => {
+    this.setState({
+      imageFile: file,
+    });
   };
 
-  const handleSubmit = (values) => {
-    // var myHeaders = new Headers();
-    // myHeaders.append("Content-Type", "application/json");
+  handleSubmit = (values) => {
     // var raw = JSON.stringify(values);
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: myHeaders,
-    //   body: raw,
-    //   redirect: "follow",
-    // };
-    // console.log(requestOptions.body);
-    // fetch("http://localhost:3001/daftarBatch", requestOptions)
-    //   .then((response) => response.text())
-    //   .then((result) => console.log(result))
-    //   .catch((error) => console.log("error", error));
-    console.log(imageFile);
+    const formData = new FormData();
+    formData.append('batch_id',values.batch_id);
+    formData.append('biji_id',values.biji_id);
+    formData.append('jenis_id',values.jenis_id);
+    formData.append('proses_id',values.proses_id);
+    formData.append('supplier_id',values.supplier_id);
+    formData.append('tgl_panen',values.tgl_panen);
+    formData.append('volume',values.volume);
+    formData.append('files',this.state.imageFile);
+    formData.append('fileName',this.state.imageFile.name);
+    console.log(formData)
+
+    UserService.addBatch(formData).then(
+      (response) => {
+        console.log(response)
+      },
+      (error) => {
+      }
+    );
+    showResults("Dimasukkan");
   };
 
-  return (
-    <Fragment>
-      <DaftarBatchForm onSubmit={handleSubmit} onSelectImage={onFileChange} />
-    </Fragment>
-  );
+  render() {
+    return (
+      <Fragment>
+        <DaftarBatchForm onSubmit={this.handleSubmit} onSelectImage={this.onFileChange} />
+      </Fragment>
+    );
+  }
 };
-
-export default DaftarBatch;

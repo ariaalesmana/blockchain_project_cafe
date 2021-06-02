@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-
-const API_URL = "http://127.0.0.1:8000/api/v1/";
+import authHeaderImage from "./auth-header-image";
+const API_URL = "https://coffee-dubai.test/api/v1/";
 
 class UserService {
   getPublicContent() {
@@ -74,6 +74,43 @@ class UserService {
     return axios.get(API_URL + "delete-product/" + id, {
       headers: authHeader(),
     });
+  }
+
+  addBiji(raw) {
+    return axios.post(API_URL + "add-biji",
+    JSON.parse(raw),
+    {
+      headers: authHeader()
+    });
+  }
+
+  addJenis(raw) {
+    return axios.post(API_URL + "add-jenis",
+    JSON.parse(raw),
+    {
+      headers: authHeader()
+    });
+  }
+
+  addProses(raw) {
+    return axios.post(API_URL + "add-proses",
+    JSON.parse(raw),
+    {
+      headers: authHeader()
+    });
+  }
+
+  addBatch(raw) {
+    // return 1;
+    return axios.post(API_URL + "add-batch",
+    raw,
+    {
+      headers: authHeaderImage()
+    });
+  }
+
+  getAddDetail() {
+    return axios.get(API_URL + "add-detail", { headers: authHeader() });
   }
 }
 

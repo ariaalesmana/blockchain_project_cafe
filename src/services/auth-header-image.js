@@ -1,9 +1,9 @@
-export default function authHeader() {
+export default function authHeaderImage() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user && user.token) {
         return {
             Authorization: 'Bearer ' + user.token,
-            "Content-Type": "application/json"
+            'Content-Type': 'multipart/form-data',
         };
     } else {
         return {};

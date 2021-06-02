@@ -5,21 +5,30 @@ import showResults from "../../showResults/showResults";
 import firebase from "../../../firebase";
 import DaftarProdukForm from "./DaftarProdukForm";
 import { useWeb3 } from '@openzeppelin/network/react';
+import UserService from "../../../services/user.service";
 const infuraProjectId = '91f84cfa46204952b3494e93e583e505';
 
 const DaftarProduk = () => {
-  const db = firebase.firestore();
+  const [files, imageFile] = useState( '' );
+  const onFileChange = (file) => {
+    imageFile(file)
+  };
 
   const handleSubmit = (values) => {
-    db.collection("produk").add({
-      batchID: values.batchID,
-      sku: values.sku,
-      namaProduk: values.namaProduk,
-      tanggalProduksi: values.tanggalProduksi,
-      bobot: values.bobot,
-    });
+    // var raw = JSON.stringify(values);
+    // const formData = new FormData();
+    // formData.append('files',this.state.imageFile);
+    // formData.append('fileName',this.state.imageFile.name);
+    console.log(files)
 
-    showResults(values);
+    // UserService.addBatch(formData).then(
+    //   (response) => {
+    //     console.log(response)
+    //   },
+    //   (error) => {
+    //   }
+    // );
+    showResults("Dimasukkan");
   };
 
   document.getElementById("CDropdownItemNewAccount").style.display = "block";
@@ -55,9 +64,8 @@ const DaftarProduk = () => {
 
   return (
     <Fragment>
-      <DaftarProdukForm onSubmit={handleSubmit} />
+      <DaftarProdukForm onSubmit={handleSubmit} onSelectImage={onFileChange} />
     </Fragment>
   );
 };
-
 export default DaftarProduk;
