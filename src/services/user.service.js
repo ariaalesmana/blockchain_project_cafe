@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 import authHeaderImage from "./auth-header-image";
-const API_URL = "https://coffee-dubai.test/api/v1/";
+const API_URL = "http://127.0.0.1:8000/api/v1/";
 
 class UserService {
   getPublicContent() {
