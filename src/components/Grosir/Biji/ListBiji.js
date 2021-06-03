@@ -1,4 +1,4 @@
-import { Fragment, React, useState, useEffect, Component } from "react";
+import { Fragment, React, Component } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import {
@@ -16,13 +16,12 @@ import {
   CTabPane,
   CTabs,
 } from "@coreui/react";
-import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";
+import showResults from "../../showResults/showResults";
 
 export default class ListBiji extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       content: "",
     };
@@ -47,6 +46,36 @@ export default class ListBiji extends Component {
       }
     );
   }
+
+  deleteBiji = (item) => {
+    UserService.deleteBiji(item.id);
+    UserService.getListJenis().then((response) => {
+      this.setState({
+        content: response.data,
+      });
+      showResults("Dihapus");
+    });
+  };
+
+  deleteJenis = (item) => {
+    UserService.deleteJenis(item.id);
+    UserService.getListJenis().then((response) => {
+      this.setState({
+        content: response.data,
+      });
+      showResults("Dihapus");
+    });
+  };
+
+  deleteProses = (item) => {
+    UserService.deleteProses(item.id);
+    UserService.getListJenis().then((response) => {
+      this.setState({
+        content: response.data,
+      });
+      showResults("Dihapus");
+    });
+  };
 
   render() {
     const fieldBiji = [
@@ -140,7 +169,7 @@ export default class ListBiji extends Component {
                                         size="sm"
                                         color="danger"
                                         className="ml-1"
-                                        onClick={() => {}}
+                                        onClick={() => this.deleteBiji(item)}
                                       >
                                         Hapus
                                       </CButton>
@@ -194,7 +223,7 @@ export default class ListBiji extends Component {
                                         size="sm"
                                         color="danger"
                                         className="ml-1"
-                                        onClick={() => {}}
+                                        onClick={() => this.deleteJenis(item)}
                                       >
                                         Hapus
                                       </CButton>
@@ -248,7 +277,7 @@ export default class ListBiji extends Component {
                                         size="sm"
                                         color="danger"
                                         className="ml-1"
-                                        onClick={() => {}}
+                                        onClick={() => this.deleteProses(item)}
                                       >
                                         Hapus
                                       </CButton>

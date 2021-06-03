@@ -1,4 +1,4 @@
-import { Fragment, React, useState, useEffect, Component } from "react";
+import { Fragment, React, Component } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
 import {
@@ -18,30 +18,39 @@ export default class ListBatch extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: "",
     };
   }
 
   componentDidMount() {
     UserService.getListBatch().then(
-      response => {
+      (response) => {
         this.setState({
-          content: response.data
+          content: response.data,
         });
-        
       },
-      error => {
+      (error) => {
         this.setState({
           content:
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
   }
+
+  deleteBatch = (item) => {
+    UserService.deleteBatch(item.id);
+    UserService.getListBatch().then((response) => {
+      this.setState({
+        content: response.data,
+      });
+      showResults("Dihapus");
+    });
+  };
 
   render() {
     const fields = [
@@ -79,7 +88,7 @@ export default class ListBatch extends Component {
                   </CCardHeader>
                   <CCardBody>
                     <CDataTable
-                      items={ this.state.content.batch }
+                      items={this.state.content.batch}
                       fields={fields}
                       itemsPerPage={10}
                       pagination
@@ -94,9 +103,7 @@ export default class ListBatch extends Component {
                                 size="sm"
                                 color="danger"
                                 className="ml-1"
-                                onClick={() => {
-                                  
-                                }}
+                                onClick={() => this.deleteBatch(item)}
                               >
                                 Hapus
                               </CButton>

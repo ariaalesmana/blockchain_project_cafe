@@ -39,7 +39,7 @@ const DaftarSupplierForm = (props) => {
                   <CLabel htmlFor="nf-namaSupplier">Nama Prosesor Kopi</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="namaSupplier"
+                    name="nama_supplier"
                     component="input"
                     type="text"
                   />
@@ -48,7 +48,7 @@ const DaftarSupplierForm = (props) => {
                   <CLabel htmlFor="nf-lokasiSupplier">Lokasi Supplier</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="lokasiSupplier"
+                    name="lokasi_supplier"
                     component="input"
                     type="text"
                   />

@@ -9,12 +9,8 @@ const DaftarBiji = () => {
   const handleSubmit = (values) => {
     var raw = JSON.stringify(values);
     UserService.addBiji(raw).then(
-      (response) => {
-        
-      },
-      (error) => {
-        
-      }
+      (response) => {},
+      (error) => {}
     );
 
     showResults("Dimasukkan");

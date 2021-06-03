@@ -1,7 +1,6 @@
-import { Fragment, useState, Component } from "react";
+import { Fragment, Component } from "react";
 import "../Grosir.css";
 import "../GrosirMedia.css";
-// import showResults from "../../showResults/showResults";
 import DaftarBatchForm from "./DaftarBatchForm";
 import UserService from "../../../services/user.service";
 import showResults from "../../showResults/showResults";

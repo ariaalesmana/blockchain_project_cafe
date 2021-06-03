@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
 import HalamanUtama from "./components/Grosir/HalamanUtama/HalamanUtama";

@@ -9,12 +9,8 @@ const DaftarJenis = () => {
   const handleSubmit = (values) => {
     var raw = JSON.stringify(values);
     UserService.addJenis(raw).then(
-      (response) => {
-        
-      },
-      (error) => {
-        
-      }
+      (response) => {},
+      (error) => {}
     );
     showResults("Dimasukkan");
   };

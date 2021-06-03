@@ -42,9 +42,22 @@ export default class ListSupplier extends Component {
     );
   }
 
+  deleteSupplier = (item) => {
+    UserService.deleteSupplier(item.id);
+    UserService.getListSupplier().then((response) => {
+      this.setState({
+        content: response.data,
+      });
+    });
+  };
+
   render() {
     const fields = [
-      { key: "nama_supplier", label: "Prosesor Kopi", _style: { width: "40%" } },
+      {
+        key: "nama_supplier",
+        label: "Prosesor Kopi",
+        _style: { width: "40%" },
+      },
       { key: "lokasi_supplier", label: "Asal", _style: { width: "30%" } },
       {
         key: "show_details",
@@ -89,7 +102,7 @@ export default class ListSupplier extends Component {
                                 size="sm"
                                 color="danger"
                                 className="ml-1"
-                                onClick={() => {}}
+                                onClick={() => this.deleteSupplier(item)}
                               >
                                 Hapus
                               </CButton>

@@ -77,35 +77,45 @@ class UserService {
   }
 
   addBiji(raw) {
-    return axios.post(API_URL + "add-biji",
-    JSON.parse(raw),
-    {
-      headers: authHeader()
+    return axios.post(API_URL + "add-biji", JSON.parse(raw), {
+      headers: authHeader(),
+    });
+  }
+
+  deleteBiji(id) {
+    return axios.get(API_URL + "delete-biji/" + id, {
+      headers: authHeader(),
     });
   }
 
   addJenis(raw) {
-    return axios.post(API_URL + "add-jenis",
-    JSON.parse(raw),
-    {
-      headers: authHeader()
+    return axios.post(API_URL + "add-jenis", JSON.parse(raw), {
+      headers: authHeader(),
     });
   }
 
   addProses(raw) {
-    return axios.post(API_URL + "add-proses",
-    JSON.parse(raw),
-    {
-      headers: authHeader()
+    return axios.post(API_URL + "add-proses", JSON.parse(raw), {
+      headers: authHeader(),
+    });
+  }
+
+  deleteProses(id) {
+    return axios.get(API_URL + "delete-proses/" + id, {
+      headers: authHeader(),
+    });
+  }
+
+  addSupplier(raw) {
+    return axios.post(API_URL + "add-supplier", JSON.parse(raw), {
+      headers: authHeader(),
     });
   }
 
   addBatch(raw) {
     // return 1;
-    return axios.post(API_URL + "add-batch",
-    raw,
-    {
-      headers: authHeaderImage()
+    return axios.post(API_URL + "add-batch", raw, {
+      headers: authHeaderImage(),
     });
   }
 
