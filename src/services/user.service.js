@@ -112,6 +112,23 @@ class UserService {
   getAddDetail() {
     return axios.get(API_URL + "add-detail", { headers: authHeader() });
   }
+
+  getAddDetailProduct() {
+    return axios.get(API_URL + "add-detail-product", { headers: authHeader() });
+  }
+
+  getSubCategory(id) {
+    return axios.get(API_URL + "get-sub-category/" + id, { headers: authHeader() });
+  }
+
+  addProduct(raw) {
+    // return 1;
+    return axios.post(API_URL + "add-product",
+    raw,
+    {
+      headers: authHeaderImage()
+    });
+  }
 }
 
 export default new UserService();

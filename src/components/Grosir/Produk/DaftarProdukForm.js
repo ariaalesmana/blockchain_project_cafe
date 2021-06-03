@@ -20,11 +20,14 @@ const DaftarProdukForm = (props) => {
   const { handleSubmit, reset } = props;
 
   const [batch, setBatch] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [subcategory, setSubCategory] = useState([]);
 
   const getBatch = async () => {
-    UserService.getListBatch().then(
+    UserService.getAddDetailProduct().then(
       (response) => {
         setBatch(response.data.batch);
+        setCategory(response.data.category);
       },
       (error) => {
         
@@ -39,6 +42,21 @@ const DaftarProdukForm = (props) => {
   const onFileChange = (e) => {
     const file = e.target.files[0];
     props.onSelectImage(file);
+  };
+
+  const onFileChangeGambar = (e) => {
+    const file = e.target.files[0];
+    props.onSelectImageGambar(file);
+  };
+
+  const onChangeCategory = (e) => {
+    UserService.getSubCategory(e.target.value).then(
+      (response) => {
+        setSubCategory(response.data.subcategory);
+      },
+      (error) => {
+      }
+    );
   };
 
   return (
@@ -61,10 +79,10 @@ const DaftarProdukForm = (props) => {
             <CCardBody>
               <CForm action="" method="post">
                 <CFormGroup>
-                  <CLabel htmlFor="nf-batchID">Batch ID</CLabel>
+                  <CLabel htmlFor="nf-batch_id">Batch ID</CLabel>
                   <Field
                     className="textInput grosir"
-                    name="batchID"
+                    name="batch_id"
                     component="select"
                   >
                     <option value="-----">----</option>
@@ -86,6 +104,43 @@ const DaftarProdukForm = (props) => {
                     component="input"
                     type="text"
                   />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-category">Kategori</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="category"
+                    component="select"
+                    onChange={onChangeCategory}
+                  >
+                    <option value="-----">----</option>
+                    {category &&
+                      category.map((value) => {
+                        return (
+                          <option key={value.id} value={value.id}>
+                            {value.name}
+                          </option>
+                        );
+                      })}
+                  </Field>
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-subcategory">Sub Kategori</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="subcategory"
+                    component="select"
+                  >
+                    <option value="-----">----</option>
+                    {subcategory &&
+                      subcategory.map((value) => {
+                        return (
+                          <option key={value.id} value={value.id}>
+                            {value.name}
+                          </option>
+                        );
+                      })}
+                  </Field>
                 </CFormGroup>
                 <CFormGroup>
                   <CLabel htmlFor="nf-description">Deskripsi</CLabel>
@@ -110,6 +165,15 @@ const DaftarProdukForm = (props) => {
                   <Field
                     className="textInput grosir"
                     name="price"
+                    component="input"
+                    type="text"
+                  />
+                </CFormGroup>
+                <CFormGroup>
+                  <CLabel htmlFor="nf-unit">Stock</CLabel>
+                  <Field
+                    className="textInput grosir"
+                    name="stock"
                     component="input"
                     type="text"
                   />
@@ -142,13 +206,13 @@ const DaftarProdukForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup row>
-                  <CLabel col xs="12" htmlFor="nf-berat">
+                  <CLabel col xs="12" htmlFor="nf-weight">
                     Berat
                   </CLabel>
                   <CCol xs="10">
                     <Field
                       className="textInput grosir"
-                      name="berat"
+                      name="weight"
                       component="input"
                       type="text"
                     />
@@ -167,15 +231,28 @@ const DaftarProdukForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup row>
-                  <CLabel col xs="12" htmlFor="file-gambarPanen">
+                  <CLabel col xs="12" htmlFor="file-gambar_panen">
                     Gambar Panen
+                  </CLabel>
+                  <CCol xs="12">
+                    <CInputFile
+                      id="file-input"
+                      name="gambar_panen"
+                      type='file'
+                      onChange={onFileChange}
+                    />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
+                  <CLabel col xs="12" htmlFor="file-gambar">
+                    Gambar Produk
                   </CLabel>
                   <CCol xs="12">
                     <CInputFile
                       id="file-input"
                       name="gambar"
                       type='file'
-                      onChange={onFileChange}
+                      onChange={onFileChangeGambar}
                     />
                   </CCol>
                 </CFormGroup>
