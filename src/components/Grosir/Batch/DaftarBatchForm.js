@@ -35,9 +35,7 @@ const DaftarBatchForm = (props) => {
         setProses(response.data.proses);
         setSupplier(response.data.supplier);
       },
-      (error) => {
-        
-      }
+      (error) => {}
     );
   };
 
@@ -57,7 +55,12 @@ const DaftarBatchForm = (props) => {
                   <h4 style={{ margin: "auto" }}>Daftar Batch</h4>
                 </CCol>
                 <CCol>
-                  <CButton block color="dark" to="/listBatch">
+                  <CButton
+                    block
+                    color="dark"
+                    to="/listBatch"
+                    style={{ backgroundColor: "#00c4cc" }}
+                  >
                     <span style={{ color: "white" }}>X</span>
                   </CButton>
                 </CCol>
@@ -65,7 +68,7 @@ const DaftarBatchForm = (props) => {
             </CCardHeader>
             <CCardBody>
               <CForm action="" method="post" enctype="multipart/form-data">
-              <CFormGroup>
+                <CFormGroup>
                   <CLabel htmlFor="nf-batchID">Batch ID</CLabel>
                   <Field
                     className="textInput grosir"
@@ -170,7 +173,7 @@ const DaftarBatchForm = (props) => {
                     <CInputFile
                       id="file-input"
                       name="gambar"
-                      type='file'
+                      type="file"
                       onChange={onFileChange}
                     />
                   </CCol>
@@ -187,10 +190,21 @@ const DaftarBatchForm = (props) => {
               </CForm>
             </CCardBody>
             <CCardFooter>
-              <CButton type="submit" size="sm" color="primary">
+              <CButton
+                type="submit"
+                size="sm"
+                color="primary"
+                style={{ backgroundColor: "#178d88" }}
+              >
                 Submit
               </CButton>{" "}
-              <CButton type="reset" size="sm" color="danger" onClick={reset}>
+              <CButton
+                type="reset"
+                size="sm"
+                color="danger"
+                onClick={reset}
+                style={{ backgroundColor: "#e2602c" }}
+              >
                 Reset
               </CButton>
             </CCardFooter>

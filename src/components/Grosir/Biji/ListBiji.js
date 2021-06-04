@@ -146,8 +146,9 @@ export default class ListBiji extends Component {
                                   block
                                   color="dark"
                                   to="/listBiji/daftarBiji"
+                                  style={{ backgroundColor: "#00c4cc" }}
                                 >
-                                  Tambah Data
+                                  Add
                                 </CButton>
                               </CCol>
                             </CRow>
@@ -162,13 +163,18 @@ export default class ListBiji extends Component {
                                 show_details: (item) => {
                                   return (
                                     <td className="py-2">
-                                      <CButton size="sm" color="info">
+                                      <CButton
+                                        size="sm"
+                                        color="info"
+                                        style={{ backgroundColor: "#178d88" }}
+                                      >
                                         Edit
                                       </CButton>
                                       <CButton
                                         size="sm"
                                         color="danger"
                                         className="ml-1"
+                                        style={{ backgroundColor: "#e2602c" }}
                                         onClick={() => this.deleteBiji(item)}
                                       >
                                         Hapus
@@ -200,8 +206,9 @@ export default class ListBiji extends Component {
                                   block
                                   color="dark"
                                   to="/listBiji/daftarJenis"
+                                  style={{ backgroundColor: "#00c4cc" }}
                                 >
-                                  Tambah Data
+                                  Add
                                 </CButton>
                               </CCol>
                             </CRow>
@@ -216,7 +223,11 @@ export default class ListBiji extends Component {
                                 show_details: (item) => {
                                   return (
                                     <td className="py-2">
-                                      <CButton size="sm" color="info">
+                                      <CButton
+                                        size="sm"
+                                        color="info"
+                                        style={{ backgroundColor: "#178d88" }}
+                                      >
                                         Edit
                                       </CButton>
                                       <CButton
@@ -224,6 +235,7 @@ export default class ListBiji extends Component {
                                         color="danger"
                                         className="ml-1"
                                         onClick={() => this.deleteJenis(item)}
+                                        style={{ backgroundColor: "#e2602c" }}
                                       >
                                         Hapus
                                       </CButton>
@@ -254,8 +266,9 @@ export default class ListBiji extends Component {
                                   block
                                   color="dark"
                                   to="/listBiji/daftarProses"
+                                  style={{ backgroundColor: "#00c4cc" }}
                                 >
-                                  Tambah Data
+                                  Add
                                 </CButton>
                               </CCol>
                             </CRow>
@@ -270,7 +283,11 @@ export default class ListBiji extends Component {
                                 show_details: (item) => {
                                   return (
                                     <td className="py-2">
-                                      <CButton size="sm" color="info">
+                                      <CButton
+                                        size="sm"
+                                        color="info"
+                                        style={{ backgroundColor: "#178d88" }}
+                                      >
                                         Edit
                                       </CButton>
                                       <CButton
@@ -278,6 +295,7 @@ export default class ListBiji extends Component {
                                         color="danger"
                                         className="ml-1"
                                         onClick={() => this.deleteProses(item)}
+                                        style={{ backgroundColor: "#e2602c" }}
                                       >
                                         Hapus
                                       </CButton>

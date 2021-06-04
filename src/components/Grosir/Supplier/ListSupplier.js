@@ -48,6 +48,7 @@ export default class ListSupplier extends Component {
       this.setState({
         content: response.data,
       });
+      showResults("Dihapus");
     });
   };
 
@@ -79,8 +80,13 @@ export default class ListSupplier extends Component {
                         <h4 style={{ margin: "auto" }}>Data Prosesor Kopi</h4>
                       </CCol>
                       <CCol>
-                        <CButton block color="dark" to="/listSupplier/daftar">
-                          Tambah Data
+                        <CButton
+                          block
+                          color="dark"
+                          to="/listSupplier/daftar"
+                          style={{ backgroundColor: "#00c4cc" }}
+                        >
+                          Add
                         </CButton>
                       </CCol>
                     </CRow>
@@ -95,7 +101,11 @@ export default class ListSupplier extends Component {
                         show_details: (item) => {
                           return (
                             <td className="py-2">
-                              <CButton size="sm" color="info">
+                              <CButton
+                                size="sm"
+                                color="info"
+                                style={{ backgroundColor: "#178d88" }}
+                              >
                                 Edit
                               </CButton>
                               <CButton
@@ -103,6 +113,7 @@ export default class ListSupplier extends Component {
                                 color="danger"
                                 className="ml-1"
                                 onClick={() => this.deleteSupplier(item)}
+                                style={{ backgroundColor: "#e2602c" }}
                               >
                                 Hapus
                               </CButton>

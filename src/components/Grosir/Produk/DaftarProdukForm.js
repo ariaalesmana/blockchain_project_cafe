@@ -12,7 +12,7 @@ import {
   CCardFooter,
   CRow,
   CCol,
-  CInputFile
+  CInputFile,
 } from "@coreui/react";
 import UserService from "../../../services/user.service";
 
@@ -29,9 +29,7 @@ const DaftarProdukForm = (props) => {
         setBatch(response.data.batch);
         setCategory(response.data.category);
       },
-      (error) => {
-        
-      }
+      (error) => {}
     );
   };
 
@@ -54,8 +52,7 @@ const DaftarProdukForm = (props) => {
       (response) => {
         setSubCategory(response.data.subcategory);
       },
-      (error) => {
-      }
+      (error) => {}
     );
   };
 
@@ -70,7 +67,12 @@ const DaftarProdukForm = (props) => {
                   <h4 style={{ margin: "auto" }}>Daftar Produk</h4>
                 </CCol>
                 <CCol>
-                  <CButton block color="dark" to="/listProduk">
+                  <CButton
+                    block
+                    color="dark"
+                    to="/listProduk"
+                    style={{ backgroundColor: "#00c4cc" }}
+                  >
                     <span style={{ color: "white" }}>X</span>
                   </CButton>
                 </CCol>
@@ -152,7 +154,9 @@ const DaftarProdukForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-short_description">Deskripsi Singkat</CLabel>
+                  <CLabel htmlFor="nf-short_description">
+                    Deskripsi Singkat
+                  </CLabel>
                   <Field
                     className="textInput grosir"
                     name="short_description"
@@ -238,7 +242,7 @@ const DaftarProdukForm = (props) => {
                     <CInputFile
                       id="file-input"
                       name="gambar_panen"
-                      type='file'
+                      type="file"
                       onChange={onFileChange}
                     />
                   </CCol>
@@ -251,7 +255,7 @@ const DaftarProdukForm = (props) => {
                     <CInputFile
                       id="file-input"
                       name="gambar"
-                      type='file'
+                      type="file"
                       onChange={onFileChangeGambar}
                     />
                   </CCol>
@@ -259,10 +263,21 @@ const DaftarProdukForm = (props) => {
               </CForm>
             </CCardBody>
             <CCardFooter>
-              <CButton type="submit" size="sm" color="primary">
+              <CButton
+                type="submit"
+                size="sm"
+                color="primary"
+                style={{ backgroundColor: "#178d88" }}
+              >
                 Submit
               </CButton>{" "}
-              <CButton type="reset" size="sm" color="danger" onClick={reset}>
+              <CButton
+                type="reset"
+                size="sm"
+                color="danger"
+                onClick={reset}
+                style={{ backgroundColor: "#e2602c" }}
+              >
                 Reset
               </CButton>
             </CCardFooter>

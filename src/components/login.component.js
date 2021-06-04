@@ -8,10 +8,7 @@ import {
   CRow,
   CCol,
   CContainer,
-  CInputGroup,
-  CInputGroupPrepend,
-  CInputGroupText,
-  CInput,
+  CImg,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { freeSet } from "@coreui/icons";
@@ -141,6 +138,7 @@ class Login extends Component {
                           <div className="form-group">
                             <button
                               className="btn btn-primary btn-block"
+                              style={{ backgroundColor: "#00c4cc" }}
                               disabled={this.state.loading}
                             >
                               {this.state.loading && (
@@ -175,28 +173,27 @@ class Login extends Component {
                   </CCardBody>
                 </CCard>
                 <CCard
-                  className="text-white bg-primary py-5 d-md-down-none"
-                  style={{ width: "44%" }}
+                  className="text-white py-5 d-md-down-none"
+                  style={{
+                    width: "44%",
+                    backgroundColor: "#00c4cc",
+                  }}
                 >
-                  <CCardBody className="text-center">
-                    <div>
-                      <h2>Sign up</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua.
-                      </p>
-                      <Link to="#">
-                        <CButton
-                          color="primary"
-                          className="mt-3"
-                          active
-                          tabIndex={-1}
-                        >
-                          Register Now!
-                        </CButton>
-                      </Link>
-                    </div>
+                  <CCardBody
+                    className="text-center"
+                    style={{
+                      backgroundColor: "#00c4cc",
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
+                    <CImg
+                      src="images/logo-kopi-ketjil.png"
+                      className="d-inline-block align-bottom"
+                      alt="logo-kopi-ketjil"
+                    />
                   </CCardBody>
                 </CCard>
               </CCardGroup>

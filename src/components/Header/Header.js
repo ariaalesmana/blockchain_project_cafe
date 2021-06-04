@@ -18,14 +18,13 @@ import {
 import { logout } from "../../actions/auth";
 import { clearMessage } from "../../actions/message";
 
-import { history } from '../../helpers/history';
+import { history } from "../../helpers/history";
 
-
-const Header = props => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
-    <CNavbar expandable="sm" color="dark">
+    <CNavbar expandable="sm" style={{ backgroundColor: "#178d88" }}>
       <CToggler inNavbar onClick={() => setIsOpen(!isOpen)} />
       <CNavbarBrand href="/">
         <CImg
@@ -47,7 +46,12 @@ const Header = props => {
             <CDropdownMenu>
               <CDropdownItem>Account</CDropdownItem>
               <CDropdownItem>Settings</CDropdownItem>
-              <CDropdownItem id="CDropdownItemNewAccount" style={{ display: "none" }}>New Account</CDropdownItem>
+              <CDropdownItem
+                id="CDropdownItemNewAccount"
+                style={{ display: "none" }}
+              >
+                New Account
+              </CDropdownItem>
               <CDropdownItem href="/login" onClick={() => props.logoutClick()}>
                 LogOut
               </CDropdownItem>

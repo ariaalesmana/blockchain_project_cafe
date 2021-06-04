@@ -27,7 +27,12 @@ const DaftarJenisForm = (props) => {
                   <h4 style={{ margin: "auto" }}>Daftar Jenis</h4>
                 </CCol>
                 <CCol>
-                  <CButton block color="dark" to="/listBiji">
+                  <CButton
+                    block
+                    color="dark"
+                    to="/listBiji"
+                    style={{ backgroundColor: "#00c4cc" }}
+                  >
                     <span style={{ color: "white" }}>X</span>
                   </CButton>
                 </CCol>
@@ -55,10 +60,21 @@ const DaftarJenisForm = (props) => {
               </CForm>
             </CCardBody>
             <CCardFooter>
-              <CButton type="submit" size="sm" color="primary">
+              <CButton
+                type="submit"
+                size="sm"
+                color="primary"
+                style={{ backgroundColor: "#178d88" }}
+              >
                 Submit
               </CButton>{" "}
-              <CButton type="reset" size="sm" color="danger" onClick={reset}>
+              <CButton
+                type="reset"
+                size="sm"
+                color="danger"
+                onClick={reset}
+                style={{ backgroundColor: "#e2602c" }}
+              >
                 Reset
               </CButton>
             </CCardFooter>

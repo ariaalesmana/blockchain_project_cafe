@@ -68,8 +68,13 @@ export default class ListProduk extends Component {
                         <h4 style={{ margin: "auto" }}>Data Produk</h4>
                       </CCol>
                       <CCol>
-                        <CButton block color="dark" to="/listProduk/daftar">
-                          Tambah Data
+                        <CButton
+                          block
+                          color="dark"
+                          to="/listProduk/daftar"
+                          style={{ backgroundColor: "#00c4cc" }}
+                        >
+                          Add
                         </CButton>
                       </CCol>
                     </CRow>
