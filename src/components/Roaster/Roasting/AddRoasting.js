@@ -1,14 +1,15 @@
 import { Fragment } from "react";
-import "../Grosir.css";
-import "../GrosirMedia.css";
-import DaftarJenisForm from "./DaftarJenisForm";
+import "../Roaster.css";
+import "../RoasterMedia.css";
+import AddRoastingForm from "./AddRoastingForm";
 import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";
 
-const DaftarJenis = () => {
+const AddRoasting = () => {
   const handleSubmit = (values) => {
     var raw = JSON.stringify(values);
-    UserService.addJenis(raw).then(
+    console.log(raw);
+    UserService.addSupplier(raw).then(
       (response) => {},
       (error) => {}
     );
@@ -17,9 +18,9 @@ const DaftarJenis = () => {
 
   return (
     <Fragment>
-      <DaftarJenisForm onSubmit={handleSubmit} />
+      <AddRoastingForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };
 
-export default DaftarJenis;
+export default AddRoasting;

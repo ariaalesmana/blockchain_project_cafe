@@ -35,10 +35,8 @@ const Header = (props) => {
       </CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink to="/listBiji">Biji Kopi</CNavLink>
-          <CNavLink to="/listSupplier">Prosesor Kopi</CNavLink>
-          <CNavLink to="/listBatch">Batch</CNavLink>
-          <CNavLink to="/listProduk">Produk</CNavLink>
+          <CNavLink to="/products">Products</CNavLink>
+          <CNavLink to="/roasting">Roasting</CNavLink>
         </CNavbarNav>
         <CNavbarNav className="ml-auto">
           <CDropdown inNav>

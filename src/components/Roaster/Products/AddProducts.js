@@ -1,11 +1,9 @@
 import { Fragment } from "react";
-import "../Grosir.css";
-import "../GrosirMedia.css";
-import DaftarSupplierForm from "./DaftarSupplierForm";
+import AddProductForm from "./AddProductForm";
 import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";
 
-const DaftarSupplier = () => {
+const AddProducts = () => {
   const handleSubmit = (values) => {
     var raw = JSON.stringify(values);
     console.log(raw);
@@ -18,9 +16,9 @@ const DaftarSupplier = () => {
 
   return (
     <Fragment>
-      <DaftarSupplierForm onSubmit={handleSubmit} />
+      <AddProductForm onSubmit={handleSubmit} />
     </Fragment>
   );
 };
 
-export default DaftarSupplier;
+export default AddProducts;

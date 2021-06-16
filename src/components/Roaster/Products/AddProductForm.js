@@ -16,7 +16,7 @@ import {
 } from "@coreui/react";
 import UserService from "../../../services/user.service";
 
-const DaftarProdukForm = (props) => {
+const AddProductForm = (props) => {
   const { handleSubmit, reset } = props;
 
   const [batch, setBatch] = useState([]);
@@ -64,13 +64,13 @@ const DaftarProdukForm = (props) => {
             <CCardHeader>
               <CRow>
                 <CCol xs={9} md={10} lg={11} style={{ margin: "auto" }}>
-                  <h4 style={{ margin: "auto" }}>Daftar Produk</h4>
+                  <h4 style={{ margin: "auto" }}>Add Product</h4>
                 </CCol>
                 <CCol>
                   <CButton
                     block
                     color="dark"
-                    to="/listProduk"
+                    to="/products"
                     style={{ backgroundColor: "#00c4cc" }}
                   >
                     <span style={{ color: "white" }}>X</span>
@@ -99,7 +99,7 @@ const DaftarProdukForm = (props) => {
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-name">Nama Produk</CLabel>
+                  <CLabel htmlFor="nf-name">Product Name</CLabel>
                   <Field
                     className="textInput grosir"
                     name="name"
@@ -108,7 +108,7 @@ const DaftarProdukForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-category">Kategori</CLabel>
+                  <CLabel htmlFor="nf-category">Category</CLabel>
                   <Field
                     className="textInput grosir"
                     name="category"
@@ -127,7 +127,7 @@ const DaftarProdukForm = (props) => {
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-subcategory">Sub Kategori</CLabel>
+                  <CLabel htmlFor="nf-subcategory">Subcategory</CLabel>
                   <Field
                     className="textInput grosir"
                     name="subcategory"
@@ -145,7 +145,7 @@ const DaftarProdukForm = (props) => {
                   </Field>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-description">Deskripsi</CLabel>
+                  <CLabel htmlFor="nf-description">Description</CLabel>
                   <Field
                     className="textInput grosir"
                     name="description"
@@ -155,7 +155,7 @@ const DaftarProdukForm = (props) => {
                 </CFormGroup>
                 <CFormGroup>
                   <CLabel htmlFor="nf-short_description">
-                    Deskripsi Singkat
+                    Short Description
                   </CLabel>
                   <Field
                     className="textInput grosir"
@@ -165,7 +165,7 @@ const DaftarProdukForm = (props) => {
                   />
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-price">Harga</CLabel>
+                  <CLabel htmlFor="nf-price">Price</CLabel>
                   <Field
                     className="textInput grosir"
                     name="price"
@@ -211,7 +211,7 @@ const DaftarProdukForm = (props) => {
                 </CFormGroup>
                 <CFormGroup row>
                   <CLabel col xs="12" htmlFor="nf-weight">
-                    Berat
+                    Weight
                   </CLabel>
                   <CCol xs="10">
                     <Field
@@ -226,7 +226,7 @@ const DaftarProdukForm = (props) => {
                   </CCol>
                 </CFormGroup>
                 <CFormGroup>
-                  <CLabel htmlFor="nf-tgl_produksi">Tanggal Produksi</CLabel>
+                  <CLabel htmlFor="nf-tgl_produksi">Date of Production</CLabel>
                   <Field
                     className="textInput grosir"
                     name="tgl_produksi"
@@ -236,7 +236,7 @@ const DaftarProdukForm = (props) => {
                 </CFormGroup>
                 <CFormGroup row>
                   <CLabel col xs="12" htmlFor="file-gambar_panen">
-                    Gambar Panen
+                    Harvest Image
                   </CLabel>
                   <CCol xs="12">
                     <CInputFile
@@ -249,7 +249,7 @@ const DaftarProdukForm = (props) => {
                 </CFormGroup>
                 <CFormGroup row>
                   <CLabel col xs="12" htmlFor="file-gambar">
-                    Gambar Produk
+                    Product Image
                   </CLabel>
                   <CCol xs="12">
                     <CInputFile
@@ -289,5 +289,5 @@ const DaftarProdukForm = (props) => {
 };
 
 export default reduxForm({
-  form: "daftarProduk", // a unique identifier for this form
-})(DaftarProdukForm);
+  form: "addProduct", // a unique identifier for this form
+})(AddProductForm);

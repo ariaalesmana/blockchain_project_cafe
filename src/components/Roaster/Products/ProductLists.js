@@ -1,6 +1,4 @@
 import { Fragment, React, useState, useEffect, Component } from "react";
-import "../Grosir.css";
-import "../GrosirMedia.css";
 import {
   CCard,
   CCardBody,
@@ -13,7 +11,7 @@ import {
 import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";
 
-export default class ListProduk extends Component {
+export default class ProductLists extends Component {
   constructor(props) {
     super(props);
 
@@ -65,13 +63,13 @@ export default class ListProduk extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>Data Produk</h4>
+                        <h4 style={{ margin: "auto" }}>Product Data</h4>
                       </CCol>
                       <CCol>
                         <CButton
                           block
                           color="dark"
-                          to="/listProduk/daftar"
+                          to="/products/addProducts"
                           style={{ backgroundColor: "#00c4cc" }}
                         >
                           Add
@@ -83,9 +81,9 @@ export default class ListProduk extends Component {
                     <table className="table table-lg responsive striped bordered hover">
                       <thead>
                         <tr>
-                          <th>Nama</th>
-                          <th>Deskripsi</th>
-                          <th>Harga</th>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Price</th>
                           <th>SKU</th>
                         </tr>
                       </thead>

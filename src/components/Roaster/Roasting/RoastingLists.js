@@ -1,6 +1,6 @@
 import { Fragment, React, useState, useEffect, Component } from "react";
-import "../Grosir.css";
-import "../GrosirMedia.css";
+import "../Roaster.css";
+import "../RoasterMedia.css";
 import {
   CCard,
   CCardBody,
@@ -13,7 +13,7 @@ import {
 import showResults from "../../showResults/showResults";
 import UserService from "../../../services/user.service";
 
-export default class ListSupplier extends Component {
+export default class RoastingLists extends Component {
   constructor(props) {
     super(props);
 
@@ -56,10 +56,14 @@ export default class ListSupplier extends Component {
     const fields = [
       {
         key: "nama_supplier",
-        label: "Prosesor Kopi",
+        label: "Roasting Product",
         _style: { width: "40%" },
       },
-      { key: "lokasi_supplier", label: "Asal", _style: { width: "30%" } },
+      {
+        key: "lokasi_supplier",
+        label: "Volume",
+        _style: { width: "30%" },
+      },
       {
         key: "show_details",
         label: "",
@@ -77,13 +81,13 @@ export default class ListSupplier extends Component {
                   <CCardHeader>
                     <CRow>
                       <CCol xs={6} md={7} lg={10} style={{ margin: "auto" }}>
-                        <h4 style={{ margin: "auto" }}>Data Prosesor Kopi</h4>
+                        <h4 style={{ margin: "auto" }}>Roasting Data</h4>
                       </CCol>
                       <CCol>
                         <CButton
                           block
                           color="dark"
-                          to="/listSupplier/daftar"
+                          to="/roasting/addRoasting"
                           style={{ backgroundColor: "#00c4cc" }}
                         >
                           Add
