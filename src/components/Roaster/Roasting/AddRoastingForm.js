@@ -12,9 +12,17 @@ import {
   CRow,
   CCol,
 } from "@coreui/react";
+import { Fragment } from "react";
 
 const AddRoastingForm = (props) => {
   const { handleSubmit, reset } = props;
+
+  const [selectedRoastingMenu, setSelectedRoastingMenu] = useState("-----");
+
+  const handleChange = (e) => {
+    setSelectedRoastingMenu(e.target.value);
+    console.log(e.target.value);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -65,6 +73,8 @@ const AddRoastingForm = (props) => {
                     id="roastingMenu"
                     name="roastingMenu"
                     component="select"
+                    value={selectedRoastingMenu}
+                    onChange={handleChange}
                   >
                     <option value="-----">----</option>
                     <option value="Single">Single Origin</option>
@@ -72,95 +82,135 @@ const AddRoastingForm = (props) => {
                   </Field>
                 </CFormGroup>
 
-                <CFormGroup row>
-                  <CLabel col xs="12" htmlFor="nf-subcategory">
-                    Select Bean
-                  </CLabel>
-                  <CCol xs="10">
-                    <Field
-                      className="textInput grosir"
-                      name="selectBeanSingle"
-                      component="select"
-                    >
-                      <option value="-----">----</option>
-                      <option value="Arabica">Arabica</option>
-                      <option value="Robusta">Robusta</option>
-                    </Field>
-                  </CCol>
-                  <CCol xs="2" style={{ margin: "auto" }}>
-                    <CButton size="sm" color="secondary">
-                      Scan QR Code
-                    </CButton>
-                  </CCol>
-                </CFormGroup>
+                {selectedRoastingMenu === "Single" && (
+                  <Fragment>
+                    <CFormGroup row>
+                      <CLabel col xs="12" htmlFor="nf-subcategory">
+                        Select Bean
+                      </CLabel>
+                      <CCol xs="10">
+                        <Field
+                          className="textInput grosir"
+                          name="selectBeanSingle"
+                          component="select"
+                        >
+                          <option value="-----">----</option>
+                          <option value="Arabica">Arabica</option>
+                          <option value="Robusta">Robusta</option>
+                        </Field>
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <CButton size="sm" color="secondary">
+                          Scan QR Code
+                        </CButton>
+                      </CCol>
+                    </CFormGroup>
+                    <CFormGroup row>
+                      <CLabel col xs="12" htmlFor="nf-weight">
+                        Amount
+                      </CLabel>
+                      <CCol xs="10">
+                        <Field
+                          className="textInput grosir"
+                          name="weight"
+                          component="input"
+                          type="text"
+                        />
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <span>packs / bag</span>
+                      </CCol>
+                    </CFormGroup>
+                    <CFormGroup row>
+                      <CLabel col xs="12" htmlFor="nf-weight">
+                        Weight
+                      </CLabel>
+                      <CCol xs="10">
+                        <Field
+                          className="textInput grosir"
+                          name="weight"
+                          component="input"
+                          type="text"
+                        />
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <span>g</span>
+                      </CCol>
+                    </CFormGroup>
+                  </Fragment>
+                )}
 
-                <CFormGroup row>
-                  <CLabel col xs="5" htmlFor="selectBean">
-                    Select Bean
-                  </CLabel>
-                  <CLabel col xs="5" htmlFor="persentase">
-                    Persentase
-                  </CLabel>
-                  <CCol xs="5">
-                    <Field
-                      className="textInput grosir"
-                      name="selectBeanMultiple"
-                      component="select"
-                    >
-                      <option value="-----">----</option>
-                      <option value="Arabica">Arabica</option>
-                      <option value="Robusta">Robusta</option>
-                    </Field>
-                  </CCol>
-                  <CCol xs="3">
-                    <Field
-                      className="textInput grosir"
-                      name="persentase"
-                      component="input"
-                      type="text"
-                    />
-                  </CCol>
-                  <CCol xs="2" style={{ margin: "auto" }}>
-                    <span>%</span>
-                  </CCol>
-                  <CCol xs="2" style={{ margin: "auto" }}>
-                    <CButton size="sm" color="secondary">
-                      Scan QR Code
-                    </CButton>
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CLabel col xs="12" htmlFor="nf-weight">
-                    Amount
-                  </CLabel>
-                  <CCol xs="10">
-                    <Field
-                      className="textInput grosir"
-                      name="weight"
-                      component="input"
-                      type="text"
-                    />
-                  </CCol>
-                  <CCol xs="2" style={{ margin: "auto" }}>
-                    <span>packs / bag</span>
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CLabel col xs="12" htmlFor="nf-weight">
-                    Weight
-                  </CLabel>
-                  <CCol xs="10">
-                    <Field
-                      className="textInput grosir"
-                      name="weight"
-                      component="input"
-                      type="text"
-                    />
-                  </CCol>
-                  <CCol xs="2" style={{ margin: "auto" }}>
-                    <span>g</span>
-                  </CCol>
-                </CFormGroup>
+                {selectedRoastingMenu === "Blended" && (
+                  <Fragment>
+                    <CFormGroup row>
+                      <CLabel col xs="7" htmlFor="selectBean">
+                        Select Bean
+                      </CLabel>
+                      <CLabel col xs="5" htmlFor="persentase">
+                        Persentase
+                      </CLabel>
+                      <CCol xs="5">
+                        <Field
+                          className="textInput grosir"
+                          name="selectBeanMultiple"
+                          component="select"
+                        >
+                          <option value="-----">----</option>
+                          <option value="Arabica">Arabica</option>
+                          <option value="Robusta">Robusta</option>
+                        </Field>
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <CButton size="sm" color="secondary">
+                          Scan QR Code
+                        </CButton>
+                      </CCol>
+                      <CCol xs="3">
+                        <Field
+                          className="textInput grosir"
+                          name="persentase"
+                          component="input"
+                          type="text"
+                        />
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <span>%</span>
+                      </CCol>
+                    </CFormGroup>
+                    <CFormGroup row>
+                      <CLabel col xs="12" htmlFor="nf-weight">
+                        Amount
+                      </CLabel>
+                      <CCol xs="10">
+                        <Field
+                          className="textInput grosir"
+                          name="weight"
+                          component="input"
+                          type="text"
+                        />
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <span>packs / bag</span>
+                      </CCol>
+                    </CFormGroup>
+                    <CFormGroup row>
+                      <CLabel col xs="12" htmlFor="nf-weight">
+                        Weight
+                      </CLabel>
+                      <CCol xs="10">
+                        <Field
+                          className="textInput grosir"
+                          name="weight"
+                          component="input"
+                          type="text"
+                        />
+                      </CCol>
+                      <CCol xs="2" style={{ margin: "auto" }}>
+                        <span>g</span>
+                      </CCol>
+                    </CFormGroup>
+                  </Fragment>
+                )}
               </CForm>
             </CCardBody>
             <CCardFooter>
